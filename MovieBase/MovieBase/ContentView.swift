@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var vm = MovieListViewModel()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            List{
+                ForEach(vm.movies, id: \.self) { movie in
+                    Text(movie.originalTitle)
+                }
+            }
         }
         .padding()
+        .onAppear{
+            vm.getMovies()
+        }
     }
 }
 
