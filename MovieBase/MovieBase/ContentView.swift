@@ -10,19 +10,24 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var vm = MovieListViewModel()
     var body: some View {
-        VStack {
-            List{
-                ForEach(vm.movies, id: \.self) { movie in
-                    Text(movie.originalTitle)
+        ScrollView(.horizontal){
+            HStack {
+                ForEach(vm.movies, id: \.self){ movie in
+                    CardView(name: movie.originalTitle, url: Config().imgBaseUrl+movie.posterPath)
                 }
             }
         }
-        .padding()
+        .frame(width: Screen.shared.width, height: Screen.shared.height)
+        .background(content: {
+            Color.black
+        })
         .onAppear{
             vm.getMovies()
         }
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

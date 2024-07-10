@@ -10,9 +10,11 @@ import Foundation
 struct Movie: Codable, Hashable{
     let movieId: Int
     let originalTitle: String
+    let posterPath: String
     enum CodingKeys: String, CodingKey{
         case movieId = "id"
-        case originalTitle = "original_name"
+        case originalTitle = "original_title"
+        case posterPath = "poster_path"
     }
 }
 

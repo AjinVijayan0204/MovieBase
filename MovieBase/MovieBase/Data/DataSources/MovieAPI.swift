@@ -11,23 +11,24 @@ struct MovieAPIImpl: MovieRepository{
     
     
     func getMovies() async throws-> [Movie] {
-        print("movie")
-        let url = URL(string: "https://api.themoviedb.org/3/tv/popular")!
+        let movieUrl = Config().appUrl + "movie/popular"
+        let url = URL(string: movieUrl)!
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         let queryItems: [URLQueryItem] = [
           URLQueryItem(name: "language", value: "en-US"),
           URLQueryItem(name: "page", value: "1"),
         ]
         components.queryItems = components.queryItems.map { $0 + queryItems } ?? queryItems
-
+        
+        let authorisation = "Bearer " + Config().apiKey
         var request = URLRequest(url: components.url!)
         request.httpMethod = "GET"
         request.timeoutInterval = 10
         request.allHTTPHeaderFields = [
           "accept": "application/json",
-          "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MWU1ZjZiZDA4OWYwMmIzZGYyMGUwOGNlMjIyM2Q3MSIsIm5iZiI6MTcyMDQ2MzA5OC4wMjA5MDIsInN1YiI6IjY2ODc5MzBmMzRhNTQzOTA0ZjFjZTFiYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yMSzZzyGZ1DgPSWofuAgdz3OgMCY_MMhOHl2CXHIe_I"
+          "Authorization": authorisation
         ]
-        
+
         let (data, _) = try await URLSession.shared.data(for: request)
         let movies = try? JSONDecoder().decode(MovieResponse.self, from: data)
         guard let movies = movies?.result else { return [Movie]() }
