@@ -9,7 +9,7 @@ import Foundation
 
 class MovieListViewModel: ObservableObject{
     
-    var movieUseCase = MovieIseCases(repo: MovieReposImpl(dataSource: MovieAPIImpl()))
+    var movieUseCase = MovieUseCases(repo: MovieReposImpl(dataSource: MovieAPIImpl()))
     
     @Published var movies: [Movie] = .init()
     

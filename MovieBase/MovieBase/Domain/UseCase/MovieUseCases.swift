@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieIseCases: MovieRepository{
+struct MovieUseCases: MovieRepository{
     
     var repo: MovieRepository
     
