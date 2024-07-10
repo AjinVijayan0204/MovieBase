@@ -17,6 +17,8 @@
 		874E9BE72C3C59AE000719D9 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E9BE62C3C59AE000719D9 /* MovieAPI.swift */; };
 		874E9BEA2C3C6A87000719D9 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E9BE92C3C6A87000719D9 /* MovieListViewModel.swift */; };
 		874E9BED2C3C6E0B000719D9 /* MovieReposImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E9BEC2C3C6E0B000719D9 /* MovieReposImpl.swift */; };
+		874E9C012C3F0006000719D9 /* App-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 874E9C002C3F0006000719D9 /* App-Config.plist */; };
+		874E9C032C3F00B2000719D9 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E9C022C3F00B2000719D9 /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		874E9BE62C3C59AE000719D9 /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
 		874E9BE92C3C6A87000719D9 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		874E9BEC2C3C6E0B000719D9 /* MovieReposImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReposImpl.swift; sourceTree = "<group>"; };
+		874E9C002C3F0006000719D9 /* App-Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "App-Config.plist"; sourceTree = "<group>"; };
+		874E9C022C3F00B2000719D9 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 		874E9BCA2C3AFE33000719D9 /* MovieBase */ = {
 			isa = PBXGroup;
 			children = (
+				874E9BFF2C3EFFEB000719D9 /* Configuration */,
 				874E9BDB2C3B00C1000719D9 /* Data */,
 				874E9BDA2C3B00BA000719D9 /* Domain */,
 				874E9BD92C3B00AF000719D9 /* Presentation */,
@@ -157,6 +162,15 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		874E9BFF2C3EFFEB000719D9 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				874E9C002C3F0006000719D9 /* App-Config.plist */,
+				874E9C022C3F00B2000719D9 /* Configuration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				874E9BD32C3AFE34000719D9 /* Preview Assets.xcassets in Resources */,
+				874E9C012C3F0006000719D9 /* App-Config.plist in Resources */,
 				874E9BD02C3AFE34000719D9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +245,7 @@
 				874E9BE42C3C4BDF000719D9 /* MovieUseCases.swift in Sources */,
 				874E9BE12C3C49CB000719D9 /* MovieRepository.swift in Sources */,
 				874E9BED2C3C6E0B000719D9 /* MovieReposImpl.swift in Sources */,
+				874E9C032C3F00B2000719D9 /* Configuration.swift in Sources */,
 				874E9BCE2C3AFE33000719D9 /* ContentView.swift in Sources */,
 				874E9BEA2C3C6A87000719D9 /* MovieListViewModel.swift in Sources */,
 				874E9BE72C3C59AE000719D9 /* MovieAPI.swift in Sources */,
