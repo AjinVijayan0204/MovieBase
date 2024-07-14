@@ -11,9 +11,9 @@ class WebService{
     
     let appConfig = Config()
     
-    func makeRequest(for url: String, queryItems: [URLQueryItem]) async throws-> Data?{
+    func makeRequest(for url: String, queryItems: [URLQueryItem]) async throws-> Data{
         let baseUrl = appConfig.appUrl
-        guard let fullUrl = URL(string: baseUrl + url) else { return nil }
+        guard let fullUrl = URL(string: baseUrl + url) else { return Data() }
         var components = URLComponents(url: fullUrl, resolvingAgainstBaseURL: true)!
         let queryItems: [URLQueryItem] = queryItems
         components.queryItems = components.queryItems.map { $0 + queryItems } ?? queryItems
