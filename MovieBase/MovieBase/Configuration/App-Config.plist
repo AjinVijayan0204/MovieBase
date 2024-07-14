@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>api_image_base_url</key>
+	<string>https://image.tmdb.org/t/p/w185/</string>
 	<key>api_key</key>
 	<string></string>
 	<key>App_Base_Url</key>
