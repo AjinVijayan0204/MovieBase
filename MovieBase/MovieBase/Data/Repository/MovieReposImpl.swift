@@ -11,7 +11,8 @@ struct MovieReposImpl: MovieRepository{
     
     var dataSource: MovieRepository
     
-    func getMovies() async throws -> [Movie] {
+    func getMovies() async throws -> [MovieCardModel] {
+        
         try await dataSource.getMovies()
     }
     

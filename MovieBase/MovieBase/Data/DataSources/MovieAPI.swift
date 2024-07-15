@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct MovieAPIImpl: MovieRepository{
+struct MovieAPIImpl{
     
     let webService = WebService()
     
-    func getMovies() async-> [Movie] {
+    func getMovies() async-> [MovieCardModel] {
         
         let popularMovies = "movie/popular"
         let queryItems: [URLQueryItem] = [
@@ -21,11 +21,18 @@ struct MovieAPIImpl: MovieRepository{
         
         do{
             let data = try await webService.makeRequest(for: popularMovies, queryItems: queryItems)
-            let movies = try? JSONDecoder().decode(MovieResponse.self, from: data)
-            guard let movies = movies?.result else { return [Movie]() }
+            let moviesResponse = try? JSONDecoder().decode(MovieResponse.self, from: data)
+            var movies = [MovieCardModel]()
+            moviesResponse?.result.forEach({ movie in
+                let movie = MovieCardModel(movieId: movie.movieId,
+                                           originalTitle: movie.originalTitle,
+                                           posterPath: movie.posterPath)
+                movies.append(movie)
+            })
+            
             return movies
         }catch{
-            return [Movie]()
+            return [MovieCardModel]()
         }
     }
     

@@ -23,6 +23,7 @@
 		874E9C092C3F24CC000719D9 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E9C082C3F24CC000719D9 /* CardView.swift */; };
 		874E9C0C2C443470000719D9 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E9C0B2C443470000719D9 /* MovieListView.swift */; };
 		874E9C0E2C443906000719D9 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E9C0D2C443906000719D9 /* Webservice.swift */; };
+		874E9C112C445D10000719D9 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E9C102C445D10000719D9 /* DataModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		874E9C082C3F24CC000719D9 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		874E9C0B2C443470000719D9 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		874E9C0D2C443906000719D9 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		874E9C102C445D10000719D9 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		874E9BDB2C3B00C1000719D9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				874E9C0F2C445C91000719D9 /* DataModel */,
 				874E9C0A2C3F25F6000719D9 /* Networking */,
 				874E9BEB2C3C6DA5000719D9 /* Repository */,
 				874E9BE52C3C507B000719D9 /* DataSources */,
@@ -197,6 +200,14 @@
 				874E9C0D2C443906000719D9 /* Webservice.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		874E9C0F2C445C91000719D9 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				874E9C102C445D10000719D9 /* DataModels.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 				874E9BE72C3C59AE000719D9 /* MovieAPI.swift in Sources */,
 				874E9BDD2C3C431B000719D9 /* MovieModels.swift in Sources */,
 				874E9C0E2C443906000719D9 /* Webservice.swift in Sources */,
+				874E9C112C445D10000719D9 /* DataModels.swift in Sources */,
 				874E9C092C3F24CC000719D9 /* CardView.swift in Sources */,
 				874E9BCC2C3AFE33000719D9 /* MovieBaseApp.swift in Sources */,
 			);

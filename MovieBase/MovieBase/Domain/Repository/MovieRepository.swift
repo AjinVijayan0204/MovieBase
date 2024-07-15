@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MovieRepository{
-    func getMovies() async throws-> [Movie]
+    func getMovies() async throws-> [MovieCardModel]
 }
