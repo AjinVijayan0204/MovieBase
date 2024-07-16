@@ -13,3 +13,9 @@ struct Screen{
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
 }
+
+enum MovieEndpoint: String{
+    case popularMovies = "movie/popular"
+    case nowPlaying = "movie/now_playing"
+    case topRated = "movie/top_rated"
+}
