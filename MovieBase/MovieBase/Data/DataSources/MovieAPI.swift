@@ -11,30 +11,24 @@ struct MovieAPIImpl{
     
     let webService = WebService()
     
-    func getMovies() async-> [MovieCardModel] {
+    func getMovies() async-> [Movie] {
         
-        let popularMovies = "movie/popular"
+        let movieEndpoint = MovieEndpoint.popularMovies.rawValue
         let queryItems: [URLQueryItem] = [
           URLQueryItem(name: "language", value: "en-US"),
           URLQueryItem(name: "page", value: "1"),
         ]
         
         do{
-            let data = try await webService.makeRequest(for: popularMovies, queryItems: queryItems)
-            let moviesResponse = try? JSONDecoder().decode(MovieResponse.self, from: data)
-            var movies = [MovieCardModel]()
-            moviesResponse?.result.forEach({ movie in
-                let movie = MovieCardModel(movieId: movie.movieId,
-                                           originalTitle: movie.originalTitle,
-                                           posterPath: movie.posterPath)
-                movies.append(movie)
-            })
-            
-            return movies
+            let data = try await webService.makeRequest(for: movieEndpoint, queryItems: queryItems)
+            let moviesResponse = try JSONDecoder().decode(MovieResponse.self, from: data)
+            return moviesResponse.result
         }catch{
-            return [MovieCardModel]()
+            return [Movie]()
         }
     }
-    
-    
+}
+
+enum MovieEndpoint: String{
+    case popularMovies = "movie/popular"
 }

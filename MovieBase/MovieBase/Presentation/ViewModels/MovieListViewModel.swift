@@ -11,7 +11,7 @@ class MovieListViewModel: ObservableObject{
     
     var movieUseCase = MovieUseCases(repo: MovieReposImpl(dataSource: MovieAPIImpl()))
     
-    @Published var movies: [Movie] = .init()
+    @Published var movies: [MovieCardModel] = .init()
     
     func getMovies(){
         Task{

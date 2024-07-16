@@ -9,12 +9,23 @@ import Foundation
 
 struct MovieReposImpl: MovieRepository{
     
-    var dataSource: MovieRepository
+    var dataSource: MovieAPIImpl
     
-    func getMovies() async throws -> [MovieCardModel] {
+    func getMovies() async -> [MovieCardModel] {
         
-        try await dataSource.getMovies()
+        let movies = await dataSource.getMovies()
+        let presentationModel = convertDataToPresentationModel(movies)
+        return presentationModel
     }
-    
-    
+   
+    func convertDataToPresentationModel(_ movies: [Movie])-> [MovieCardModel]{
+        var convertedMovies: [MovieCardModel] = []
+        movies.forEach { movie in
+            convertedMovies.append(MovieCardModel(movieId: movie.movieId,
+                                                  originalTitle: movie.originalTitle,
+                                                  posterPath: movie.posterPath)
+            )
+        }
+        return convertedMovies
+    }
 }

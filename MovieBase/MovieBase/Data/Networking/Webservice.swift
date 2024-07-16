@@ -18,10 +18,10 @@ class WebService{
         let queryItems: [URLQueryItem] = queryItems
         components.queryItems = components.queryItems.map { $0 + queryItems } ?? queryItems
         
-        let authorisation = "Bearer" + appConfig.apiKey
+        let authorisation = "Bearer " + appConfig.apiKey
         var request = URLRequest(url: components.url!)
         request.httpMethod = RequestMethod.get.rawValue
-        request.timeoutInterval = 1
+        request.timeoutInterval = 10
         request.allHTTPHeaderFields = [
             "accept": "application/json",
             "Authorization": authorisation

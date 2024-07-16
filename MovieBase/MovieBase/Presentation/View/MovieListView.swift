@@ -13,9 +13,11 @@ struct MovieListView: View {
     
     var body: some View {
         ScrollView(.horizontal){
-            HStack {
-                ForEach(vm.movies, id: \.self){ movie in
-                    CardView(name: movie.originalTitle, url: Config().imgBaseUrl+movie.posterPath)
+            VStack {
+                HStack {
+                    ForEach(vm.movies, id: \.self){ movie in
+                        CardView(name: movie.originalTitle, url: Config().imgBaseUrl+movie.posterPath)
+                    }
                 }
             }
         }
@@ -25,6 +27,15 @@ struct MovieListView: View {
         })
         .onAppear{
             vm.getMovies()
+        }
+    }
+}
+
+struct HorizontalScrollView: View{
+    
+    var body: some View{
+        HStack{
+            
         }
     }
 }
