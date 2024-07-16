@@ -11,9 +11,9 @@ struct MovieAPIImpl{
     
     let webService = WebService()
     
-    func getMovies() async-> [Movie] {
+    func getMovies(_ endPoint: MovieEndpoint) async-> [Movie] {
         
-        let movieEndpoint = MovieEndpoint.popularMovies.rawValue
+        let movieEndpoint = endPoint.rawValue
         let queryItems: [URLQueryItem] = [
           URLQueryItem(name: "language", value: "en-US"),
           URLQueryItem(name: "page", value: "1"),
@@ -27,8 +27,4 @@ struct MovieAPIImpl{
             return [Movie]()
         }
     }
-}
-
-enum MovieEndpoint: String{
-    case popularMovies = "movie/popular"
 }

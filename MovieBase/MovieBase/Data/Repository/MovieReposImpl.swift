@@ -11,9 +11,9 @@ struct MovieReposImpl: MovieRepository{
     
     var dataSource: MovieAPIImpl
     
-    func getMovies() async -> [MovieCardModel] {
+    func getMovies(_ ofType: MovieEndpoint) async -> [MovieCardModel] {
         
-        let movies = await dataSource.getMovies()
+        let movies = await dataSource.getMovies(ofType)
         let presentationModel = convertDataToPresentationModel(movies)
         return presentationModel
     }
