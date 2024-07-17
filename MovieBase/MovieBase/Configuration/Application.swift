@@ -14,8 +14,27 @@ struct Screen{
     let height = UIScreen.main.bounds.height
 }
 
-enum MovieEndpoint: String{
-    case popularMovies = "movie/popular"
-    case nowPlaying = "movie/now_playing"
-    case topRated = "movie/top_rated"
+enum MovieEndpoint: RawRepresentable{
+    
+    init?(rawValue: String) {
+        nil
+    }
+    
+    var rawValue: String{
+        switch self{
+        case .topRated:
+            return "movie/top_rated"
+        case .nowPlaying:
+            return "movie/now_playing"
+        case .popularMovies:
+            return "movie/popular"
+        case .movieDetail(let id):
+            return "movie/\(id)"
+        }
+    }
+    
+    case popularMovies
+    case nowPlaying
+    case topRated
+    case movieDetail(id: Int)
 }
