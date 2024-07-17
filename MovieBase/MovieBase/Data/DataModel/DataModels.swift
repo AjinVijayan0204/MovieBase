@@ -26,3 +26,23 @@ struct MovieResponse: Codable{
         case result = "results"
     }
 }
+
+struct MovieDetailResponseModel: Codable{
+    let adult: Bool
+    let originalLanguage: String
+    let originalTitle: String
+    let overview: String
+    let releaseDate: String
+    let title: String
+    let runtime: Double
+    enum CodingKeys: String, CodingKey {
+        case adult = "adult"
+        case originalLanguage = "original_language"
+        case originalTitle = "original_title"
+        case overview = "overview"
+        case releaseDate = "release_date"
+        case title = "title"
+        case runtime = "runtime"
+    }
+    
+}

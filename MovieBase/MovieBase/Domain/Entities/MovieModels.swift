@@ -7,8 +7,18 @@
 
 import Foundation
 
-struct MovieCardModel: Codable, Hashable{
+struct MovieCardModel: Hashable{
     let movieId: Int
     let originalTitle: String
     let posterPath: String
+}
+
+struct MovieDetailModel{
+    let adult: Bool
+    let originalLanguage: String
+    let originalTitle: String
+    let overview: String
+    let releaseDate: String
+    let title: String
+    let runtime: Double
 }
