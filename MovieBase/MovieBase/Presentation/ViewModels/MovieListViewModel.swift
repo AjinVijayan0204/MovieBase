@@ -9,11 +9,15 @@ import Foundation
 
 class MovieListViewModel: ObservableObject{
     
-    var movieUseCase = MovieUseCases(repo: MovieReposImpl(dataSource: MovieAPIImpl()))
+    var movieUseCase: MovieUseCases
     
     @Published var popularMovies: [MovieCardModel] = .init()
     @Published var nowPlaying: [MovieCardModel] = .init()
     @Published var topRated: [MovieCardModel] = .init()
+    
+    init(movieUseCase: MovieUseCases){
+        self.movieUseCase = movieUseCase
+    }
     
     func getMovies(_ ofType: MovieEndpoint){
         Task{
@@ -26,6 +30,8 @@ class MovieListViewModel: ObservableObject{
                     self.popularMovies = movies
                 case .topRated:
                     self.topRated = movies
+                default:
+                    break
                 }
             })
         }

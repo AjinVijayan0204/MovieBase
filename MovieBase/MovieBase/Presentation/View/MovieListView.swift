@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MovieListView: View {
     
-    @StateObject var vm = MovieListViewModel()
+    @StateObject var vm: MovieListViewModel
     
     var body: some View {
         ScrollView(.vertical) {
@@ -41,8 +41,9 @@ struct MovieListView: View {
                         vm.getTopRatedMovie()
                     }
             }
-            .frame(width: Screen.shared.width,height: .infinity, alignment: .top)
-            .padding(.leading)
+            .frame(width: Screen.shared.width, alignment: .top)
+            .padding(.top)
+            .padding(.bottom, 20)
         }
     }
 }
@@ -65,6 +66,6 @@ struct HorizontalScrollView: View{
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView()
+        MovieListView(vm: MovieListViewModel(movieUseCase: MovieUseCases(repo: MovieReposImpl(dataSource: MovieAPIImpl()))))
     }
 }
