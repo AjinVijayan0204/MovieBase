@@ -14,37 +14,35 @@ struct MovieListView: View {
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .leading){
-                AsyncImage(url: URL(string: "")) { img in
-                    img
-                        .resizable()
-                        .frame(height: Screen.shared.height * 0.30)
-                } placeholder: {
-                    Image(systemName: "photo")
-                        .resizable()
-                        .frame(height: Screen.shared.height * 0.30)
-                        .tint(.white)
-                        .foregroundStyle(Color.white)
-                }
-                .padding(.top, Screen.shared.height * 0.1)
+                NetworkImageView(imgUrl: vm.latest?.posterPath ?? "")
+                    .onAppear{
+                        vm.getLatestMovie()
+                    }
 
                 Text("Popular Movies")
                     .sectionHeader()
-                HorizontalScrollView(listItems: $vm.popularMovies)
+                HorizontalScrollView(listItems: $vm.popularMovies, action: vm.getMovieDetails(id:))
                     .onAppear{
                         vm.getPopularMovies()
                     }
                 
                 Text("Top Rated")
                     .sectionHeader()
-                HorizontalScrollView(listItems: $vm.topRated)
+                HorizontalScrollView(listItems: $vm.topRated, action: vm.getMovieDetails(id:))
                     .onAppear{
                         vm.getTopRatedMovie()
                     }
             }
+            .padding(.bottom, 20)
             .frame(width: Screen.shared.width, alignment: .top)
             .padding(.top)
-            .padding(.bottom, 20)
+            .navigationDestination(isPresented: $vm.toDetailScreen) {
+                MovieDetailView(vm: vm.movieDetailViewModel)
+            }
         }
+        .background(content: {
+            Color.black
+        })
     }
 }
 
@@ -52,12 +50,13 @@ struct MovieListView: View {
 struct HorizontalScrollView: View{
     
     @Binding var listItems: [MovieCardModel]
+    var action: (Int)-> ()
     
     var body: some View{
         ScrollView(.horizontal) {
             HStack{
                 ForEach(listItems, id: \.self){ movie in
-                    CardView(name: movie.originalTitle, url: Config().imgBaseUrl+movie.posterPath)
+                    CardView(id: movie.movieId, name: movie.originalTitle, url: Config().imgBaseUrl+movie.posterPath, action: action)
                 }
             }
         }

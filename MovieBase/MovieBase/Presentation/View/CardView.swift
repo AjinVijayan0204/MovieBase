@@ -9,11 +9,15 @@ import SwiftUI
 
 struct CardView: View{
     
+    let id: Int
     let name: String
     let url: String
-
+    
+    var action: (Int)-> ()
+    
     var body: some View{
         Rectangle()
+            .foregroundStyle(Color.white)
             .overlay{
                 ZStack(alignment: .bottomLeading) {
                     AsyncImage(url: URL(string: url)) { img in
@@ -29,12 +33,17 @@ struct CardView: View{
             }
             .frame(width: Screen.shared.width * 0.3, height: Screen.shared.width * 0.5)
             .clipShape(RoundedRectangle(cornerRadius: 20))
+            .onTapGesture {
+                action(id)
+            }
             
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(name: "", url: "")
+        CardView(id: 0,name: "", url: "") { _ in
+            
+        }
     }
 }

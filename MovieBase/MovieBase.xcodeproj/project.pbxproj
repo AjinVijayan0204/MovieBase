@@ -28,6 +28,7 @@
 		87AFF7D82C46D2610096A013 /* CustomViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D72C46D2610096A013 /* CustomViewModifiers.swift */; };
 		87AFF7DA2C46DF3A0096A013 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */; };
 		87AFF7DC2C46DF510096A013 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7DB2C46DF510096A013 /* MovieDetailViewModel.swift */; };
+		87AFF7DE2C4851460096A013 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7DD2C4851460096A013 /* NetworkImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		87AFF7D72C46D2610096A013 /* CustomViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifiers.swift; sourceTree = "<group>"; };
 		87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		87AFF7DB2C46DF510096A013 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		87AFF7DD2C4851460096A013 /* NetworkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				874E9C082C3F24CC000719D9 /* CardView.swift */,
 				874E9C0B2C443470000719D9 /* MovieListView.swift */,
 				87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */,
+				87AFF7DD2C4851460096A013 /* NetworkImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				874E9C092C3F24CC000719D9 /* CardView.swift in Sources */,
 				87AFF7DA2C46DF3A0096A013 /* MovieDetailView.swift in Sources */,
 				87AFF7D52C46D1CE0096A013 /* ViewExtensions.swift in Sources */,
+				87AFF7DE2C4851460096A013 /* NetworkImageView.swift in Sources */,
 				874E9BCC2C3AFE33000719D9 /* MovieBaseApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

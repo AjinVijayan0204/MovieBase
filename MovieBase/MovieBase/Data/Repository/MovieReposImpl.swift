@@ -43,7 +43,8 @@ struct MovieReposImpl: MovieRepository{
             overview: movie.overview,
             releaseDate: movie.releaseDate,
             title: movie.title,
-            runtime: movie.runtime
+            runtime: movie.runtime, 
+            posterPath: movie.posterPath
         )
         return convertedMovie
     }

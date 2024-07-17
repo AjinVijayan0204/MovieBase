@@ -21,4 +21,5 @@ struct MovieDetailModel{
     let releaseDate: String
     let title: String
     let runtime: Double
+    let posterPath: String
 }

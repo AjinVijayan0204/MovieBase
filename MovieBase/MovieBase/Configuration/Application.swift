@@ -22,6 +22,8 @@ enum MovieEndpoint: RawRepresentable{
     
     var rawValue: String{
         switch self{
+        case .latest:
+            return "movie/latest"
         case .topRated:
             return "movie/top_rated"
         case .nowPlaying:
@@ -36,5 +38,6 @@ enum MovieEndpoint: RawRepresentable{
     case popularMovies
     case nowPlaying
     case topRated
+    case latest
     case movieDetail(id: Int)
 }

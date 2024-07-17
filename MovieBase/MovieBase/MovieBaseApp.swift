@@ -12,6 +12,7 @@ struct MovieBaseApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .ignoresSafeArea()
         }
     }
 }
