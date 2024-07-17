@@ -27,4 +27,20 @@ struct MovieAPIImpl{
             return [Movie]()
         }
     }
+    
+    func getMovieDetails(_ endPoint: MovieEndpoint) async-> MovieDetailResponseModel?{
+        
+        let movieDetailEndPoint = endPoint.rawValue
+        let queryItems: [URLQueryItem] = [
+            URLQueryItem(name: "language", value: "en-US"),
+        ]
+        do{
+            let data = try await webService.makeRequest(for: movieDetailEndPoint, queryItems: queryItems)
+            let movieDetailResponse = try JSONDecoder().decode(MovieDetailResponseModel.self, from: data)
+            return movieDetailResponse
+        }catch{
+            return nil
+        }
+        
+    }
 }

@@ -15,5 +15,7 @@ struct MovieUseCases: MovieRepository{
         return (try await repo.getMovies(ofType))
     }
     
-    
+    func getDetail(_ ofType: MovieEndpoint) async throws -> MovieDetailModel? {
+        return (try await repo.getDetail(ofType))
+    }
 }
