@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NetworkImageView: View {
     
+    let mode: ImageViewType
     let imgUrl: String
     
     var body: some View {
@@ -17,15 +18,16 @@ struct NetworkImageView: View {
             AsyncImage(url: URL(string: Config().imgBaseUrl+imgUrl)) { img in
                 img
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .frame(height: Screen.shared.height * 0.30)
+                    .aspectRatio(contentMode: (mode == .card) ? .fit : .fill)
                 
             } placeholder: {
                 Image(systemName: "photo")
                     .resizable()
+                    .frame(height: Screen.shared.height * 0.30)
                     .tint(.white)
                 
             }
-            .frame(height: Screen.shared.height * 0.30)
             .overlay(content: {
                 Color.black
                     .opacity(0.4)
@@ -39,5 +41,5 @@ struct NetworkImageView: View {
 }
 
 #Preview {
-    NetworkImageView(imgUrl: "vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg")
+    NetworkImageView(mode: .card, imgUrl: "vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg")
 }

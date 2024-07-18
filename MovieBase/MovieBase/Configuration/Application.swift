@@ -32,6 +32,8 @@ enum MovieEndpoint: RawRepresentable{
             return "movie/popular"
         case .movieDetail(let id):
             return "movie/\(id)"
+        case .upcoming:
+            return "movie/upcoming"
         }
     }
     
@@ -39,5 +41,7 @@ enum MovieEndpoint: RawRepresentable{
     case nowPlaying
     case topRated
     case latest
+    case upcoming
     case movieDetail(id: Int)
 }
+ 

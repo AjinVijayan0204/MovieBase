@@ -14,11 +14,10 @@ struct MovieListView: View {
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .leading){
-                NetworkImageView(imgUrl: vm.latest?.posterPath ?? "")
-                    .onAppear{
-                        vm.getLatestMovie()
-                    }
-
+                
+                TrendingMovies(vm: vm.trendingMovieVM)
+                    .padding(.top)
+                
                 Text("Popular Movies")
                     .sectionHeader()
                 HorizontalScrollView(listItems: $vm.popularMovies, action: vm.getMovieDetails(id:))

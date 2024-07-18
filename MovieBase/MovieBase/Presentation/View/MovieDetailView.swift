@@ -17,7 +17,7 @@ struct MovieDetailView: View {
                 ScrollView(.vertical) {
                     VStack(alignment: .leading){
                         
-                        NetworkImageView(imgUrl: movie.posterPath)
+                        NetworkImageView(mode: .card, imgUrl: movie.posterPath)
                         
                         Text(movie.originalTitle)
                             .movieHeader()

@@ -11,6 +11,7 @@ class MovieListViewModel: ObservableObject{
     
     var movieUseCase: MovieUseCases
     let movieDetailViewModel: MovieDetailViewModel
+    let trendingMovieVM: TrendingMovieViewModel
     
     @Published var popularMovies: [MovieCardModel] = .init()
     @Published var nowPlaying: [MovieCardModel] = .init()
@@ -21,6 +22,7 @@ class MovieListViewModel: ObservableObject{
     init(movieUseCase: MovieUseCases){
         self.movieUseCase = movieUseCase
         self.movieDetailViewModel = MovieDetailViewModel(selectedMovieId: 0, movieUseCase: movieUseCase)
+        self.trendingMovieVM = TrendingMovieViewModel(movieUseCase: movieUseCase)
     }
     
     func getMovies(_ ofType: MovieEndpoint){
