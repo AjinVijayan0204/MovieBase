@@ -16,7 +16,7 @@ struct ContentView: View {
     
     
     init() {
-          UIScrollView.appearance().bounces = false
+        UIScrollView.appearance().bounces = false
         self.dataSource = MovieAPIImpl()
         self.movieRepository = MovieReposImpl(dataSource: dataSource)
         self.movieUseCase = MovieUseCases(repo: movieRepository)
@@ -27,7 +27,7 @@ struct ContentView: View {
         NavigationStack {
             MovieListView(vm: movieListViewModel)
                 .ignoresSafeArea()
-        }
+        }.tint(.white)
     }
 }
 

@@ -36,7 +36,7 @@ struct MovieReposImpl: MovieRepository{
     
     func convertMovieDetailsToPresentationModel(_ movie: MovieDetailResponseModel?)-> MovieDetailModel?{
         guard let movie = movie else{ return nil}
-        var convertedMovie: MovieDetailModel = MovieDetailModel(
+        let convertedMovie: MovieDetailModel = MovieDetailModel(
             adult: movie.adult,
             originalLanguage: movie.originalLanguage,
             originalTitle: movie.originalTitle,
@@ -44,7 +44,8 @@ struct MovieReposImpl: MovieRepository{
             releaseDate: movie.releaseDate,
             title: movie.title,
             runtime: movie.runtime, 
-            posterPath: movie.posterPath
+            posterPath: movie.posterPath,
+            voteAvg: movie.voteAvg
         )
         return convertedMovie
     }

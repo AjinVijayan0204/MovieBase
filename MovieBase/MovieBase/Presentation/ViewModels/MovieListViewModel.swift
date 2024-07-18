@@ -44,7 +44,6 @@ class MovieListViewModel: ObservableObject{
     func getLatestMovie(_ ofType: MovieEndpoint){
         Task{
             let movie = try await movieUseCase.getDetail(ofType)
-            print(movie)
             await MainActor.run {
                 switch ofType{
                 case .latest:

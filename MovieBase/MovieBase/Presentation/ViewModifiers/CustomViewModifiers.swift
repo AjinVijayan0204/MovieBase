@@ -16,3 +16,12 @@ struct SectionHeader: ViewModifier{
             .padding(.top)
     }
 }
+
+struct MovieHeader: ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .font(.title3)
+            .bold()
+            .foregroundStyle(.white)
+    }
+}

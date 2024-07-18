@@ -36,6 +36,7 @@ struct MovieDetailResponseModel: Codable{
     let title: String
     let runtime: Double
     let posterPath: String
+    let voteAvg: Double
     enum CodingKeys: String, CodingKey {
         case adult = "adult"
         case originalLanguage = "original_language"
@@ -45,6 +46,7 @@ struct MovieDetailResponseModel: Codable{
         case title = "title"
         case runtime = "runtime"
         case posterPath = "poster_path"
+        case voteAvg = "vote_average"
     }
     
 }

@@ -12,4 +12,8 @@ extension View{
     func sectionHeader()-> some View{
         modifier(SectionHeader())
     }
+    
+    func movieHeader()-> some View{
+        modifier(MovieHeader())
+    }
 }
