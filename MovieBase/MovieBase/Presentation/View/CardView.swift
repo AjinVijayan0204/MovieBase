@@ -31,7 +31,7 @@ struct CardView: View{
                         .opacity(0.4)
                 }
             }
-            .frame(width: Screen.shared.width * 0.3, height: Screen.shared.width * 0.5)
+            .frame(width: Screen.shared.width * 0.3, height: Screen.shared.height * 0.3)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .onTapGesture {
                 action(id)

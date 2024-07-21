@@ -35,6 +35,7 @@ struct NetworkImageView: View {
             .clipShape(RoundedRectangle(cornerRadius: 20))
             Spacer()
         }
+        .frame(width: Screen.shared.height * 0.3)
         .padding(.horizontal)
         
     }

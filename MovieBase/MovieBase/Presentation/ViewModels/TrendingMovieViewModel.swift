@@ -26,7 +26,7 @@ class TrendingMovieViewModel: ObservableObject{
             await MainActor.run(body: {
                 switch ofType{
                 case .nowPlaying:
-                    self.upcoming = Array(movies.prefix(upTo: 5))
+                    self.upcoming = (!movies.isEmpty) ? Array(movies.prefix(upTo: 5)) : Array(repeating: MovieCardModel(movieId: 0, originalTitle: "", posterPath: ""), count: 6)
                 default:
                     break
                 }

@@ -19,7 +19,6 @@ class MovieDetailViewModel: ObservableObject{
         self.movieUseCase = movieUseCase
     }
     
-    
     func getMovieDetails(){
         self.getMovieDetails(.movieDetail(id: selectedMovieId ?? 0))
     }

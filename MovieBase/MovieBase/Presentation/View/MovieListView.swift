@@ -18,23 +18,13 @@ struct MovieListView: View {
                 TrendingMovies(vm: vm.trendingMovieVM)
                     .padding(.top)
                 
-                Text("Popular Movies")
-                    .sectionHeader()
-                HorizontalScrollView(listItems: $vm.popularMovies, action: vm.getMovieDetails(id:))
-                    .onAppear{
-                        vm.getPopularMovies()
-                    }
-                
-                Text("Top Rated")
-                    .sectionHeader()
-                HorizontalScrollView(listItems: $vm.topRated, action: vm.getMovieDetails(id:))
-                    .onAppear{
-                        vm.getTopRatedMovie()
-                    }
+                HorizontalScrollView(vm: vm.createViewModel(.popularMovies))
+                HorizontalScrollView(vm: vm.createViewModel(.topRated))
             }
             .padding(.bottom, 20)
-            .frame(width: Screen.shared.width, alignment: .top)
             .padding(.top)
+            .padding(.horizontal)
+            .frame(width: Screen.shared.width, alignment: .top)
             .navigationDestination(isPresented: $vm.toDetailScreen) {
                 MovieDetailView(vm: vm.movieDetailViewModel)
             }
@@ -45,22 +35,6 @@ struct MovieListView: View {
     }
 }
 
-
-struct HorizontalScrollView: View{
-    
-    @Binding var listItems: [MovieCardModel]
-    var action: (Int)-> ()
-    
-    var body: some View{
-        ScrollView(.horizontal) {
-            HStack{
-                ForEach(listItems, id: \.self){ movie in
-                    CardView(id: movie.movieId, name: movie.originalTitle, url: Config().imgBaseUrl+movie.posterPath, action: action)
-                }
-            }
-        }
-    }
-}
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
