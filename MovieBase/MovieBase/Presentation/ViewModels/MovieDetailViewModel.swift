@@ -25,7 +25,7 @@ class MovieDetailViewModel: ObservableObject{
     
     func getMovieDetails(_ ofType: MovieEndpoint){
         Task{
-            let movie = try await movieUseCase.getDetail(ofType)
+            let movie = await movieUseCase.getDetail(ofType)
             await MainActor.run {
                 switch ofType{
                 case .movieDetail(id: _):

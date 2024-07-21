@@ -11,12 +11,12 @@ struct MovieAPIImpl{
     
     let webService = WebService()
     
-    func getMovies(_ endPoint: MovieEndpoint) async-> [Movie] {
+    func getMovies(_ endPoint: MovieEndpoint, page: Int) async-> [Movie] {
         
         let movieEndpoint = endPoint.rawValue
         let queryItems: [URLQueryItem] = [
           URLQueryItem(name: "language", value: "en-US"),
-          URLQueryItem(name: "page", value: "1"),
+          URLQueryItem(name: "page", value: "\(page)"),
         ]
         
         do{

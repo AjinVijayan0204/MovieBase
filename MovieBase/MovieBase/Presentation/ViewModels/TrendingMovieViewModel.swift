@@ -22,7 +22,7 @@ class TrendingMovieViewModel: ObservableObject{
     
     func getMovies(_ ofType: MovieEndpoint){
         Task{
-            let movies = try await movieUseCase.getMovies(ofType)
+            let movies = await movieUseCase.getMovies(ofType, page: 1)
             await MainActor.run(body: {
                 switch ofType{
                 case .nowPlaying:

@@ -16,19 +16,25 @@ struct HorizontalScrollView: View{
             Text(vm.name)
                 .sectionHeader()
             ScrollView(.horizontal) {
-                HStack{
+                LazyHStack{
                     ForEach(vm.moviesList, id: \.self){ movie in
                         CardView(id: movie.movieId,
                                  name: movie.originalTitle,
-                                 url: Config().imgBaseUrl+movie.posterPath, 
+                                 url: Config().imgBaseUrl+movie.posterPath,
                                  action: vm.action)
+                    }
+                    CardView(id: 0, name: "", url: "", type: .loadMore) { _ in
+                        //
+                    }
+                    .onAppear{
+                        vm.loadNextPage()
                     }
                 }
                 .frame(height: Screen.shared.height * 0.3)
             }
         }
         .onAppear{
-            vm.getMovies(vm.type)
+            vm.loadMovies()
         }
     }
 }

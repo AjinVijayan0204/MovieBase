@@ -12,6 +12,7 @@ class HorizontalScrollViewModel: ObservableObject{
     var name: String
     let type: MovieEndpoint
     var movieUseCase: MovieUseCases
+    var page: Int = 1
     
     @Published var moviesList: [MovieCardModel] = Array(repeating: MovieCardModel(movieId: 0, originalTitle: "", posterPath: ""), count: 5)
     
@@ -32,13 +33,28 @@ class HorizontalScrollViewModel: ObservableObject{
         }
     }
     
-    func getMovies(_ ofType: MovieEndpoint){
-        Task{
-            let movies = try await movieUseCase.getMovies(ofType)
-            await MainActor.run(body: {
-                self.moviesList = (movies.isEmpty) ? Array(repeating: MovieCardModel(movieId: 0, originalTitle: "", posterPath: ""), count: 5) : movies
-            })
-        }
+    func getMovies(_ ofType: MovieEndpoint) async-> [MovieCardModel]{
+            let movies = await movieUseCase.getMovies(ofType, page: self.page)
+            return movies
     }
     
+    func loadMovies(){
+        Task{
+            let movies = await getMovies(self.type)
+            await MainActor.run {
+                self.moviesList = (movies.isEmpty) ? Array(repeating: MovieCardModel(movieId: 0, originalTitle: "", posterPath: ""), count: 5) : movies
+            }
+        }
+        
+    }
+    
+    func loadNextPage(){
+        self.page += 1
+        Task{
+            let movies = await getMovies(self.type)
+            await MainActor.run {
+                self.moviesList.append(contentsOf: movies)
+            }
+        }
+    }
 }
