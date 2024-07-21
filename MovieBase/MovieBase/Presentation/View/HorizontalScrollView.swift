@@ -33,9 +33,6 @@ struct HorizontalScrollView: View{
                 .frame(height: Screen.shared.height * 0.3)
             }
         }
-        .onAppear{
-            vm.loadMovies()
-        }
     }
 }
 

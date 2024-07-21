@@ -31,6 +31,7 @@ class HorizontalScrollViewModel: ObservableObject{
         default:
             ""
         }
+        self.loadMovies()
     }
     
     func getMovies(_ ofType: MovieEndpoint) async-> [MovieCardModel]{
