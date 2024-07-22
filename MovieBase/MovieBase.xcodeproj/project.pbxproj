@@ -120,6 +120,9 @@
 		874E9BD92C3B00AF000719D9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				87AFF7D32C46D1BB0096A013 /* Extensions */,
+				87AFF7D62C46D2440096A013 /* ViewModifiers */,
+				87787C5D2C49A192006A61CE /* Additional */,
 				874E9C072C3F24AC000719D9 /* View */,
 				874E9BE82C3C6A01000719D9 /* ViewModels */,
 			);
@@ -211,9 +214,6 @@
 		874E9C072C3F24AC000719D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				87787C5D2C49A192006A61CE /* Additional */,
-				87AFF7D62C46D2440096A013 /* ViewModifiers */,
-				87AFF7D32C46D1BB0096A013 /* Extensions */,
 				874E9C082C3F24CC000719D9 /* CardView.swift */,
 				874E9C0B2C443470000719D9 /* MovieListView.swift */,
 				87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */,
