@@ -12,49 +12,53 @@ struct MovieDetailView: View {
     @StateObject var vm: MovieDetailViewModel
     
     var body: some View {
-        VStack{
-            if let movie = vm.movie{
-                ScrollView(.vertical) {
-                    VStack(alignment: .leading){
-                        
-                        NetworkImageView(mode: .card, imgUrl: movie.posterPath)
-                        
-                        Text(movie.originalTitle)
-                            .movieHeader()
-                            .padding()
-                        
-                        HStack{
-                            Group{
-                                Text(movie.releaseYear)
-                                    .bold()
-                                Text("\(movie.likedPercentage)% Like")
-                                    .padding(.horizontal, 8)
-                                    .background {
-                                        Color.gray
-                                    }
-                                Text(movie.duration)
-                            }
-                            .padding(.trailing)
-                            .foregroundStyle(.white)
+        GeometryReader { proxy in
+            VStack{
+                if let movie = vm.movie{
+                    ScrollView(.vertical) {
+                        VStack(alignment: .leading){
                             
+                            NetworkImageView(mode: .card,
+                                             id: movie.movieId,
+                                             imgUrl: movie.posterPath,
+                                             action: vm.dummy(num:))
+                            .frame(height: proxy.size.height * 0.35)
+                            Text(movie.originalTitle)
+                                .movieHeader()
+                                .padding()
+                            
+                            HStack{
+                                Group{
+                                    Text(movie.releaseYear)
+                                        .bold()
+                                    Text("\(movie.likedPercentage)% Like")
+                                        .padding(.horizontal, 8)
+                                        .background {
+                                            Color.gray
+                                        }
+                                    Text(movie.duration)
+                                }
+                                .padding(.trailing)
+                                .foregroundStyle(.white)
+                                
+                            }
+                            Text(movie.overview)
+                            .foregroundStyle(.white)
+                            .padding(.top)
                         }
-                        Text(movie.overview)
-                        .foregroundStyle(.white)
-                        .padding(.top)
+                        
                     }
-                    .frame(width: Screen.shared.width * 0.9)
+                }else{
+                    ProgressView()
+                        .tint(Color.white)
                 }
-            }else{
-                ProgressView()
-                    .tint(Color.white)
             }
-        }
-        .frame(width: Screen.shared.width, height: Screen.shared.height)
-        .padding(.top, Screen.shared.height * 0.15)
-        .padding(.horizontal)
-        .background(Color.black)
-        .onAppear{
-            vm.getMovieDetails()
+            
+            .padding(.horizontal)
+            .background(Color.black)
+            .onAppear{
+                vm.getMovieDetails()
+            }
         }
     }
 }

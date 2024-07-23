@@ -28,6 +28,7 @@ struct MovieResponse: Codable{
 }
 
 struct MovieDetailResponseModel: Codable{
+    let movieId: Int
     let adult: Bool
     let originalLanguage: String
     let originalTitle: String
@@ -38,6 +39,7 @@ struct MovieDetailResponseModel: Codable{
     let posterPath: String
     let voteAvg: Double
     enum CodingKeys: String, CodingKey {
+        case movieId = "id"
         case adult = "adult"
         case originalLanguage = "original_language"
         case originalTitle = "original_title"

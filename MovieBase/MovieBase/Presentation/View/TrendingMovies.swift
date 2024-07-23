@@ -15,13 +15,16 @@ struct TrendingMovies: View {
         TabView(selection: $vm.selectedIndex,
                 content:  {
             ForEach(0..<5) { index in
-                NetworkImageView(mode: ImageViewType.expanded,
-                                 imgUrl: vm.upcoming[index].posterPath).tag(index)
+                
+                NetworkImageView(mode: .expanded,
+                                 id: vm.upcoming[index].movieId,
+                                 imgUrl: vm.upcoming[index].posterPath,
+                                 action: vm.action)
+                .tag(index)
             }
         })
         .tabViewStyle(.page)
         .background(Color.black)
-        .frame(height: Screen.shared.height * 0.35)
         .onAppear{
             vm.getUpcomingMovies()
         }
@@ -29,5 +32,7 @@ struct TrendingMovies: View {
 }
 
 #Preview {
-    TrendingMovies(vm: TrendingMovieViewModel(movieUseCase: MovieUseCases(repo: MovieReposImpl(dataSource: MovieAPIImpl()))))
+    TrendingMovies(vm: TrendingMovieViewModel(movieUseCase: MovieUseCases(repo: MovieReposImpl(dataSource: MovieAPIImpl())), action: { _ in
+        
+    }))
 }

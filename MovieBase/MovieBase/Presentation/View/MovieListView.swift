@@ -12,26 +12,33 @@ struct MovieListView: View {
     @StateObject var vm: MovieListViewModel
     
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(alignment: .leading){
-                
-                TrendingMovies(vm: vm.trendingMovieVM)
-                    .padding(.top)
-                
-                HorizontalScrollView(vm: vm.createViewModel(.popularMovies))
-                HorizontalScrollView(vm: vm.createViewModel(.topRated))
+        GeometryReader { proxy in
+            ScrollView(.vertical) {
+                VStack(alignment: .leading){
+                    
+                    TrendingMovies(vm: vm.trendingMovieVM)
+                        .padding(.top, 35)
+                        .frame(width: proxy.size.width, height: proxy.size.height * 0.35)
+                    
+                    HorizontalScrollView(vm: vm.createViewModel(.popularMovies))
+                        .frame(width: proxy.size.width, height: proxy.size.height * 0.3)
+                    HorizontalScrollView(vm: vm.createViewModel(.topRated))
+                        .frame(width: proxy.size.width, height: proxy.size.height * 0.3)
+                    
+                }
+                .padding(.bottom, 20)
+                .padding(.top)
+                .padding(.horizontal)
+                .frame(width: proxy.size.width, alignment: .top)
+                .navigationDestination(isPresented: $vm.toDetailScreen) {
+                    MovieDetailView(vm: vm.movieDetailViewModel)
+                }
             }
-            .padding(.bottom, 20)
-            .padding(.top)
-            .padding(.horizontal)
-            .frame(width: Screen.shared.width, alignment: .top)
-            .navigationDestination(isPresented: $vm.toDetailScreen) {
-                MovieDetailView(vm: vm.movieDetailViewModel)
-            }
-        }
-        .background(content: {
-            Color.black
+            .background(content: {
+                Color.black
         })
+        }
+        .ignoresSafeArea()
     }
 }
 

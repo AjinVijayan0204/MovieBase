@@ -15,8 +15,11 @@ class TrendingMovieViewModel: ObservableObject{
     var movieUseCase: MovieUseCases
     var timer: Timer?
     
-    init(movieUseCase: MovieUseCases) {
+    var action: (Int)-> ()
+    
+    init(movieUseCase: MovieUseCases, action: @escaping (Int)-> ()) {
         self.movieUseCase = movieUseCase
+        self.action = action
         self.autoScroll()
     }
     

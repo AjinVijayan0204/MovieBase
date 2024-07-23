@@ -19,7 +19,9 @@ class MovieListViewModel: ObservableObject{
     init(movieUseCase: MovieUseCases){
         self.movieUseCase = movieUseCase
         self.movieDetailViewModel = MovieDetailViewModel(selectedMovieId: 0, movieUseCase: movieUseCase)
-        self.trendingMovieVM = TrendingMovieViewModel(movieUseCase: movieUseCase)
+        self.trendingMovieVM = TrendingMovieViewModel(movieUseCase: movieUseCase, action: { _ in
+            
+        })
     }
     
     func createViewModel(_ ofType: MovieEndpoint)-> HorizontalScrollViewModel{

@@ -39,4 +39,7 @@ class MovieDetailViewModel: ObservableObject{
         }
     }
     
+    func dummy(num: Int){
+        
+    }
 }

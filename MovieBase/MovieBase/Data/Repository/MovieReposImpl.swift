@@ -37,6 +37,7 @@ struct MovieReposImpl: MovieRepository{
     func convertMovieDetailsToPresentationModel(_ movie: MovieDetailResponseModel?)-> MovieDetailModel?{
         guard let movie = movie else{ return nil}
         let convertedMovie: MovieDetailModel = MovieDetailModel(
+            movieId: movie.movieId,
             adult: movie.adult,
             originalLanguage: movie.originalLanguage,
             originalTitle: movie.originalTitle,

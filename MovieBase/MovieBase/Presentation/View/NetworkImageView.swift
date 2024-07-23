@@ -10,37 +10,24 @@ import SwiftUI
 struct NetworkImageView: View {
     
     let mode: ImageViewType
+    let id: Int
     let imgUrl: String
     
+    var action: (Int)-> ()
     var body: some View {
-        HStack {
-            Spacer()
-            AsyncImage(url: URL(string: Config().imgBaseUrl+imgUrl)) { img in
-                img
-                    .resizable()
-                    .frame(height: Screen.shared.height * 0.30)
-                    .aspectRatio(contentMode: (mode == .card) ? .fit : .fill)
-                
-            } placeholder: {
-                Image(systemName: "photo")
-                    .resizable()
-                    .frame(height: Screen.shared.height * 0.30)
-                    .tint(.white)
-                
+        GeometryReader { proxy in
+            HStack {
+                Spacer()
+                CardView(id: id, name: "", url: imgUrl, action: action)
+                Spacer()
             }
-            .overlay(content: {
-                Color.black
-                    .opacity(0.4)
-            })
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            Spacer()
+            .frame(height: proxy.size.height)
+            .padding(.horizontal)
         }
-        .frame(width: Screen.shared.height * 0.3)
-        .padding(.horizontal)
         
     }
 }
 
 #Preview {
-    NetworkImageView(mode: .card, imgUrl: "vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg")
+    NetworkImageView(mode: .card, id: 0, imgUrl: "vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg", action: {_ in })
 }

@@ -14,6 +14,7 @@ struct MovieCardModel: Hashable{
 }
 
 struct MovieDetailModel{
+    let movieId: Int
     let adult: Bool
     let originalLanguage: String
     let originalTitle: String
