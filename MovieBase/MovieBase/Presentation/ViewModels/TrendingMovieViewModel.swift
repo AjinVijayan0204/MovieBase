@@ -38,7 +38,7 @@ class TrendingMovieViewModel: ObservableObject{
     }
     
     func autoScroll(){
-        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { _ in
             self.selectedIndex = (self.selectedIndex == 5) ? 0 : (self.selectedIndex + 1)
         })
     }

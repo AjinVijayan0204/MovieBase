@@ -32,18 +32,20 @@ struct CardView: View{
                     ZStack() {
                         if (type == .normal) {
                             AsyncImage(url: URL(string: Config().imgBaseUrl + url)) { img in
-                                img
-                                    .resizable()
+                                ZStack {
+                                    img
+                                        .resizable()
+                                    Color.black
+                                        .opacity(0.4)
+                                    
+                                }
                             } placeholder: {
-                                Image(systemName: "photo")
-                                    .resizable()
+                                AnimatedCard()
                             }
                         } else {
                             ProgressView()
                                 .tint(.black)
                         }
-                        Color.black
-                            .opacity(0.4)
                     }
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -56,6 +58,33 @@ struct CardView: View{
     }
 }
 
+struct AnimatedCard: View {
+    
+    private var gradientColors = [
+           Color(uiColor: UIColor.systemGray5),
+           Color(uiColor: UIColor.systemGray6),
+           Color(uiColor: UIColor.systemGray5)
+       ]
+       @State var startPoint: UnitPoint = .init(x: -1.8, y: -1.2)
+       @State var endPoint: UnitPoint = .init(x: 0, y: -0.2)
+    
+    let colors: [Color] = [Color(uiColor: UIColor.systemGray5),
+                           Color(uiColor: UIColor.systemGray6),
+                           Color(uiColor: UIColor.systemGray5)]
+    var body: some View {
+        LinearGradient (colors: gradientColors,
+                         startPoint: startPoint,
+                         endPoint: endPoint)
+         .onAppear {
+             withAnimation (.easeInOut (duration: 1)
+                 .repeatForever (autoreverses: false)) {
+                     startPoint = .init(x: 1, y: 1)
+                     endPoint = .init(x: 2.2, y: 2.2)
+                 }
+         }
+    }
+}
+
 enum CardViewType{
     case normal
     case loadMore
@@ -63,7 +92,7 @@ enum CardViewType{
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(id: 0, name: "", url: "vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg", type: .normal) { _ in
+        CardView(id: 0, name: "", url: "", type: .normal) { _ in
             //
         }
     }
