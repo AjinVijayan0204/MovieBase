@@ -3,6 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>api_token</key>
+    <string></string>
 	<key>api_image_base_url</key>
 	<string>https://image.tmdb.org/t/p/w185/</string>
 	<key>api_key</key>
