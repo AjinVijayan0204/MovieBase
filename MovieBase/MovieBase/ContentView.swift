@@ -9,23 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let dataSource: MovieAPIImpl
-    let movieRepository: MovieRepository
-    let movieUseCase: MovieUseCases
-    let movieListViewModel: MovieListViewModel
+    let container: DependencyContainer
     
     
     init() {
         UIScrollView.appearance().bounces = false
-        self.dataSource = MovieAPIImpl()
-        self.movieRepository = MovieReposImpl(dataSource: dataSource)
-        self.movieUseCase = MovieUseCases(repo: movieRepository)
-        self.movieListViewModel = MovieListViewModel(movieUseCase: movieUseCase)
+        self.container = DependencyContainer()
        }
     
     var body: some View {
         NavigationStack {
-            MovieListView(vm: movieListViewModel)
+            HomeTabView(container: container)
                 .ignoresSafeArea()
         }.tint(.white)
     }

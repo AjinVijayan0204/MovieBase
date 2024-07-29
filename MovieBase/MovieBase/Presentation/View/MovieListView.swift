@@ -26,7 +26,7 @@ struct MovieListView: View {
                         .frame(width: proxy.size.width, height: proxy.size.height * 0.3)
                     
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 120)
                 .padding(.top)
                 .padding(.horizontal)
                 .frame(width: proxy.size.width, alignment: .top)
