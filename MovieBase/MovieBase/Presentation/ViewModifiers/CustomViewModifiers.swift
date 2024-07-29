@@ -25,3 +25,11 @@ struct MovieHeader: ViewModifier{
             .foregroundStyle(.white)
     }
 }
+
+struct DetailViewActions: ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .bold()
+            .foregroundStyle(.white)
+    }
+}
