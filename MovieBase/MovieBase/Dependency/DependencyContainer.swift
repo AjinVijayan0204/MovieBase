@@ -17,7 +17,7 @@ class DependencyContainer{
     init() {
         self.dataSource = MovieAPIImpl()
         self.movieRepository = MovieReposImpl(dataSource: dataSource)
-        self.movieUseCase = MovieUseCases(repo: movieRepository)
+        self.movieUseCase = MovieUseCasesImpl(repo: movieRepository)
         self.movieListViewModel = MovieListViewModel(movieUseCase: movieUseCase)
     }
 }

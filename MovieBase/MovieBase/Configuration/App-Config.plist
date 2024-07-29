@@ -4,6 +4,7 @@
 <dict>
 	<key>api_token</key>
     <string></string>
+	<string></string>
 	<key>api_image_base_url</key>
 	<string>https://image.tmdb.org/t/p/w1280/</string>
 	<key>api_key</key>
