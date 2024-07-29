@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 struct MovieCardModel: Hashable{
     let movieId: Int
@@ -13,7 +14,8 @@ struct MovieCardModel: Hashable{
     let posterPath: String
 }
 
-struct MovieDetailModel{
+@Model
+class MovieDetailModel{
     let movieId: Int
     let adult: Bool
     let originalLanguage: String
@@ -34,4 +36,19 @@ struct MovieDetailModel{
     var duration: String{
         return "\(Int(runtime/60)) hr \(Int(runtime.truncatingRemainder(dividingBy: 60))) min"
     }
+    
+    init(movieId: Int, adult: Bool, originalLanguage: String, originalTitle: String, overview: String, releaseDate: String, title: String, runtime: Double, posterPath: String, voteAvg: Double) {
+        self.movieId = movieId
+        self.adult = adult
+        self.originalLanguage = originalLanguage
+        self.originalTitle = originalTitle
+        self.overview = overview
+        self.releaseDate = releaseDate
+        self.title = title
+        self.runtime = runtime
+        self.posterPath = posterPath
+        self.voteAvg = voteAvg
+    }
 }
+
+
