@@ -18,13 +18,17 @@ struct MovieDetailView: View {
                     ScrollView(.vertical) {
                         VStack(alignment: .leading){
                             
-                            NetworkImageView(mode: .card,
-                                             id: movie.movieId,
-                                             imgUrl: movie.posterPath,
-                                             action: vm.dummy(num:))
-                            .frame(height: proxy.size.height * 0.35)
+                            ZStack(alignment: .bottomTrailing) {
+                                NetworkImageView(mode: .card,
+                                                 id: movie.movieId,
+                                                 imgUrl: movie.posterPath,
+                                                 action: vm.dummy(num:))
+                                .frame(height: proxy.size.height * 0.35)
+                                
+                            }
                             
-                            MovieDataDetailView(movie: movie)
+                            MovieDataDetailView(movie: movie, isLiked: $vm.isLiked)
+
                         }
                     }
                 }else{
@@ -38,7 +42,7 @@ struct MovieDetailView: View {
             .background(Color.black)
             .onAppear{
                 vm.getMovieDetails()
-        }
+            }
         }
     }
 }
@@ -46,13 +50,40 @@ struct MovieDetailView: View {
 struct MovieDataDetailView: View {
     
     let movie: MovieDetailModel
+    @Binding var isLiked: Bool
     
     var body: some View {
         VStack(alignment: .leading){
+            
+            HStack(){
+                Spacer()
+                Image(systemName: "plus")
+                    .resizable()
+                    .frame(width: 20)
+                    .movieAction()
+                Spacer()
+                Image(systemName: "hand.thumbsup")
+                    .resizable()
+                    .frame(width: 20)
+                    .movieAction()
+                Spacer()
+                Image(systemName: "heart.fill")
+                    .resizable()
+                    .frame(width: 20)
+                    .foregroundStyle(isLiked ? .red : .white)
+                    .movieAction()
+                    .onTapGesture {
+                        isLiked.toggle()
+                    }
+                Spacer()
+            }
+            .padding(.vertical, 10)
+            
             Text(movie.originalTitle)
                 .movieHeader()
-                .padding()
+                .padding(.vertical, 10)
             
+        
             HStack{
                 Group{
                     Text(movie.releaseYear)
@@ -69,9 +100,9 @@ struct MovieDataDetailView: View {
                 
             }
             Text(movie.overview)
-                
+                .font(.system(size: 14))
             .foregroundStyle(.white)
-            .padding(.top)
+            .padding(.top, 8)
         }
     }
 }
