@@ -16,13 +16,8 @@ struct NetworkImageView: View {
     var action: (Int)-> ()
     var body: some View {
         GeometryReader { proxy in
-            HStack {
-                Spacer()
-                CardView(id: id, name: "", url: imgUrl, action: action)
-                Spacer()
-            }
-            .frame(height: proxy.size.height)
-            .padding(.horizontal)
+            CardView(id: id, name: "", url: imgUrl, action: action)
+                .frame(height: proxy.size.height)
         }
         
     }
