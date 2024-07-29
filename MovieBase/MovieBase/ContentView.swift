@@ -15,6 +15,7 @@ struct ContentView: View {
     init() {
         UIScrollView.appearance().bounces = false
         self.container = DependencyContainer()
+
        }
     
     var body: some View {

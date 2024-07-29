@@ -12,9 +12,9 @@ struct MovieDetailView: View {
     @StateObject var vm: MovieDetailViewModel
     
     var body: some View {
-        VStack{
-            if let movie = vm.movie{
-                GeometryReader { proxy in
+        GeometryReader { proxy in
+            VStack{
+                if let movie = vm.movie{
                     ScrollView(.vertical) {
                         VStack(alignment: .leading){
                             
@@ -27,16 +27,18 @@ struct MovieDetailView: View {
                             MovieDataDetailView(movie: movie)
                         }
                     }
+                }else{
+                    ProgressView()
+                        .tint(Color.white)
+                        .frame(width: proxy.size.width, height: proxy.size.height)
+                        
                 }
-            }else{
-                ProgressView()
-                    .tint(Color.white)
             }
+            .padding(.horizontal)
+            .background(Color.black)
+            .onAppear{
+                vm.getMovieDetails()
         }
-        .padding(.horizontal)
-        .background(Color.black)
-        .onAppear{
-            vm.getMovieDetails()
         }
     }
 }
@@ -76,7 +78,7 @@ struct MovieDataDetailView: View {
 
 #Preview {
     MovieDetailView(vm:MovieDetailViewModel(selectedMovieId: 0,
-                                            movieUseCase: MovieUseCases(
+                                            movieUseCase: MovieUseCasesImpl(
                                                 repo: MovieReposImpl(
                                                     dataSource: MovieAPIImpl())
                                             )
