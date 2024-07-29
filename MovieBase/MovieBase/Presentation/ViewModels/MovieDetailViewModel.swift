@@ -12,6 +12,7 @@ class MovieDetailViewModel: ObservableObject{
     var selectedMovieId: Int?
     var movieUseCase: MovieUseCases
     
+    @Published var isLiked: Bool = false
     @Published var movie: MovieDetailModel?
     
     init(selectedMovieId: Int?, movieUseCase: MovieUseCases){
