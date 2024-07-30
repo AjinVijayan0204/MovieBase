@@ -33,6 +33,7 @@
 		87787C662C5032BD006A61CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87787C652C5032BD006A61CE /* Launch Screen.storyboard */; };
 		87787C682C57DD72006A61CE /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C672C57DD72006A61CE /* HomeTabView.swift */; };
 		87787C6C2C57EA83006A61CE /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C6B2C57EA83006A61CE /* DependencyContainer.swift */; };
+		87787C732C593343006A61CE /* SwiftDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C722C593343006A61CE /* SwiftDataModels.swift */; };
 		87AFF7D52C46D1CE0096A013 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D42C46D1CE0096A013 /* ViewExtensions.swift */; };
 		87AFF7D82C46D2610096A013 /* CustomViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D72C46D2610096A013 /* CustomViewModifiers.swift */; };
 		87AFF7DA2C46DF3A0096A013 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */; };
@@ -68,6 +69,7 @@
 		87787C652C5032BD006A61CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		87787C672C57DD72006A61CE /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		87787C6B2C57EA83006A61CE /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		87787C722C593343006A61CE /* SwiftDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataModels.swift; sourceTree = "<group>"; };
 		87AFF7D42C46D1CE0096A013 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		87AFF7D72C46D2610096A013 /* CustomViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifiers.swift; sourceTree = "<group>"; };
 		87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
@@ -151,10 +153,9 @@
 		874E9BDB2C3B00C1000719D9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				874E9C0F2C445C91000719D9 /* DataModel */,
-				874E9C0A2C3F25F6000719D9 /* Networking */,
+				87787C702C5932C2006A61CE /* Swift Data */,
+				87787C6F2C593138006A61CE /* API */,
 				874E9BEB2C3C6DA5000719D9 /* Repository */,
-				874E9BE52C3C507B000719D9 /* DataSources */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -266,6 +267,32 @@
 				87787C6B2C57EA83006A61CE /* DependencyContainer.swift */,
 			);
 			path = Dependency;
+			sourceTree = "<group>";
+		};
+		87787C6F2C593138006A61CE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				874E9C0F2C445C91000719D9 /* DataModel */,
+				874E9C0A2C3F25F6000719D9 /* Networking */,
+				874E9BE52C3C507B000719D9 /* DataSources */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		87787C702C5932C2006A61CE /* Swift Data */ = {
+			isa = PBXGroup;
+			children = (
+				87787C712C5932CB006A61CE /* Swift DataModels */,
+			);
+			path = "Swift Data";
+			sourceTree = "<group>";
+		};
+		87787C712C5932CB006A61CE /* Swift DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				87787C722C593343006A61CE /* SwiftDataModels.swift */,
+			);
+			path = "Swift DataModels";
 			sourceTree = "<group>";
 		};
 		87AFF7D32C46D1BB0096A013 /* Extensions */ = {
@@ -383,6 +410,7 @@
 				87AFF7D52C46D1CE0096A013 /* ViewExtensions.swift in Sources */,
 				87AFF7DE2C4851460096A013 /* NetworkImageView.swift in Sources */,
 				874E9BCC2C3AFE33000719D9 /* MovieBaseApp.swift in Sources */,
+				87787C732C593343006A61CE /* SwiftDataModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +550,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -552,6 +581,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
