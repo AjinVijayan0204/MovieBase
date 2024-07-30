@@ -17,7 +17,7 @@ struct HomeTabView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            Text("Two")
+            FavouritesView()
                 .tabItem {
                     Label("Favourite", systemImage: "heart")
                 }

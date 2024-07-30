@@ -34,6 +34,8 @@
 		87787C682C57DD72006A61CE /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C672C57DD72006A61CE /* HomeTabView.swift */; };
 		87787C6C2C57EA83006A61CE /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C6B2C57EA83006A61CE /* DependencyContainer.swift */; };
 		87787C732C593343006A61CE /* SwiftDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C722C593343006A61CE /* SwiftDataModels.swift */; };
+		87787C762C5938D3006A61CE /* SwiftDataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C752C5938D3006A61CE /* SwiftDataSources.swift */; };
+		87787C782C594660006A61CE /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C772C594660006A61CE /* FavouritesView.swift */; };
 		87AFF7D52C46D1CE0096A013 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D42C46D1CE0096A013 /* ViewExtensions.swift */; };
 		87AFF7D82C46D2610096A013 /* CustomViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D72C46D2610096A013 /* CustomViewModifiers.swift */; };
 		87AFF7DA2C46DF3A0096A013 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */; };
@@ -70,6 +72,8 @@
 		87787C672C57DD72006A61CE /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		87787C6B2C57EA83006A61CE /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		87787C722C593343006A61CE /* SwiftDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataModels.swift; sourceTree = "<group>"; };
+		87787C752C5938D3006A61CE /* SwiftDataSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataSources.swift; sourceTree = "<group>"; };
+		87787C772C594660006A61CE /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		87AFF7D42C46D1CE0096A013 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		87AFF7D72C46D2610096A013 /* CustomViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifiers.swift; sourceTree = "<group>"; };
 		87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 				87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */,
 				87787C652C5032BD006A61CE /* Launch Screen.storyboard */,
 				87787C672C57DD72006A61CE /* HomeTabView.swift */,
+				87787C772C594660006A61CE /* FavouritesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 		87787C702C5932C2006A61CE /* Swift Data */ = {
 			isa = PBXGroup;
 			children = (
+				87787C742C59388F006A61CE /* DataSources */,
 				87787C712C5932CB006A61CE /* Swift DataModels */,
 			);
 			path = "Swift Data";
@@ -293,6 +299,14 @@
 				87787C722C593343006A61CE /* SwiftDataModels.swift */,
 			);
 			path = "Swift DataModels";
+			sourceTree = "<group>";
+		};
+		87787C742C59388F006A61CE /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				87787C752C5938D3006A61CE /* SwiftDataSources.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 		87AFF7D32C46D1BB0096A013 /* Extensions */ = {
@@ -397,6 +411,7 @@
 				874E9BCE2C3AFE33000719D9 /* ContentView.swift in Sources */,
 				87787C612C4C2C03006A61CE /* HorizontalScrollViewModel.swift in Sources */,
 				874E9BEA2C3C6A87000719D9 /* MovieListViewModel.swift in Sources */,
+				87787C762C5938D3006A61CE /* SwiftDataSources.swift in Sources */,
 				87AFF7DC2C46DF510096A013 /* MovieDetailViewModel.swift in Sources */,
 				874E9BE72C3C59AE000719D9 /* MovieAPI.swift in Sources */,
 				874E9BDD2C3C431B000719D9 /* MovieModels.swift in Sources */,
@@ -410,6 +425,7 @@
 				87AFF7D52C46D1CE0096A013 /* ViewExtensions.swift in Sources */,
 				87AFF7DE2C4851460096A013 /* NetworkImageView.swift in Sources */,
 				874E9BCC2C3AFE33000719D9 /* MovieBaseApp.swift in Sources */,
+				87787C782C594660006A61CE /* FavouritesView.swift in Sources */,
 				87787C732C593343006A61CE /* SwiftDataModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
