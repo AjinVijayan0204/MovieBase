@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftData
 
 struct MovieCardModel: Hashable{
     let movieId: Int
@@ -14,7 +13,6 @@ struct MovieCardModel: Hashable{
     let posterPath: String
 }
 
-@Model
 class MovieDetailModel{
     let movieId: Int
     let adult: Bool
