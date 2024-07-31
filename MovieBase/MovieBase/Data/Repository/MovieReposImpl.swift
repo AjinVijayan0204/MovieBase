@@ -77,4 +77,23 @@ struct MovieReposImpl: MovieRepository{
         }
         return convertedMovies
     }
+    
+    func insertMovie(movie: MovieDetailModel) {
+        let model = convertMovieDetailToStoredModel(movie: movie)
+        localDataSource.insert(model)
+    }
+    
+    func convertMovieDetailToStoredModel(movie: MovieDetailModel)-> MovieDataModel{
+        let storedModel = MovieDataModel(movieId: movie.movieId,
+                                         adult: movie.adult,
+                                         originalLanguage: movie.originalLanguage,
+                                         originalTitle: movie.originalTitle,
+                                         overview: movie.overview,
+                                         releaseDate: movie.releaseDate,
+                                         title: movie.title,
+                                         runtime: movie.runtime,
+                                         posterPath: movie.posterPath,
+                                         voteAvg: movie.voteAvg)
+        return storedModel
+    }
 }

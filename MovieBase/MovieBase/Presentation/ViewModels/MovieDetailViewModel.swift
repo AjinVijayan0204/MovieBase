@@ -44,4 +44,10 @@ class MovieDetailViewModel: ObservableObject{
     func dummy(num: Int){
         
     }
+    
+    func addFavourite(){
+        if let movie = self.movie{
+            movieUseCase.insertMovie(movie: movie)
+        }
+    }
 }

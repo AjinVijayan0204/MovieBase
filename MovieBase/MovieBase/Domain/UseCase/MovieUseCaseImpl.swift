@@ -22,4 +22,8 @@ struct MovieUseCasesImpl: MovieUseCases{
     func getSavedMovies() -> [MovieDetailModel] {
         return repo.getSavedMovies()
     }
+    
+    func insertMovie(movie: MovieDetailModel) {
+        repo.insertMovie(movie: movie)
+    }
 }
