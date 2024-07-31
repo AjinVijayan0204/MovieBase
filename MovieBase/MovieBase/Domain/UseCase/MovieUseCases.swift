@@ -13,5 +13,6 @@ protocol  MovieUseCases{
     func getSavedMovies()-> [MovieDetailModel]
     //insert to fav
     func insertMovie(movie: MovieDetailModel)
+    func deleteMovie(movie: MovieDetailModel)
 }
 

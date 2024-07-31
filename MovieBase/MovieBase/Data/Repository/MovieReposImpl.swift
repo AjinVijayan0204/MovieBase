@@ -83,6 +83,11 @@ struct MovieReposImpl: MovieRepository{
         localDataSource.insert(model)
     }
     
+    func deleteMovie(movie: MovieDetailModel) {
+        let model = convertMovieDetailToStoredModel(movie: movie)
+        localDataSource.deleteMovie(model)
+    }
+    
     func convertMovieDetailToStoredModel(movie: MovieDetailModel)-> MovieDataModel{
         let storedModel = MovieDataModel(movieId: movie.movieId,
                                          adult: movie.adult,

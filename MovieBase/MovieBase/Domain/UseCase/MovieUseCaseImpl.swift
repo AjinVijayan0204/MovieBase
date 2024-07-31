@@ -26,4 +26,8 @@ struct MovieUseCasesImpl: MovieUseCases{
     func insertMovie(movie: MovieDetailModel) {
         repo.insertMovie(movie: movie)
     }
+    
+    func deleteMovie(movie: MovieDetailModel) {
+        repo.deleteMovie(movie: movie)
+    }
 }

@@ -42,4 +42,13 @@ class SwiftDataSources{
         return movies
     }
     
+    func deleteMovie(_ movie: MovieDataModel){
+        guard let context = self.context else { return }
+        context.delete(movie)
+        do{
+            try context.save()
+        }catch{
+            print("failed")
+        }
+    }
 }
