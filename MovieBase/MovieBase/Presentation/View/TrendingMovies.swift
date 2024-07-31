@@ -32,7 +32,7 @@ struct TrendingMovies: View {
 }
 
 #Preview {
-    TrendingMovies(vm: TrendingMovieViewModel(movieUseCase: MovieUseCasesImpl(repo: MovieReposImpl(dataSource: MovieAPIImpl())), action: { _ in
+    TrendingMovies(vm: TrendingMovieViewModel(movieUseCase: MovieUseCasesImpl(repo: MovieReposImpl(dataSource: MovieAPIImpl(), localDataSource: SwiftDataSources())), action: { _ in
         
     }))
 }

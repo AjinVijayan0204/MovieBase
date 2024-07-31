@@ -111,7 +111,7 @@ struct MovieDataDetailView: View {
     MovieDetailView(vm:MovieDetailViewModel(selectedMovieId: 0,
                                             movieUseCase: MovieUseCasesImpl(
                                                 repo: MovieReposImpl(
-                                                    dataSource: MovieAPIImpl())
+                                                    dataSource: MovieAPIImpl(), localDataSource: SwiftDataSources())
                                             )
                                            )
     )
