@@ -18,6 +18,7 @@ class MovieDetailViewModel: ObservableObject{
     init(selectedMovieId: Int?, movieUseCase: MovieUseCases){
         self.selectedMovieId = selectedMovieId
         self.movieUseCase = movieUseCase
+        self.isLiked = movie?.isFavourite ?? false
     }
     
     func getMovieDetails(){

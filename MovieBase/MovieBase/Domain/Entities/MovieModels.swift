@@ -24,6 +24,7 @@ class MovieDetailModel{
     let runtime: Double
     let posterPath: String
     let voteAvg: Double
+    var isFavourite: Bool = false
     
     var releaseYear: String{
         return String(releaseDate[..<releaseDate.index(releaseDate.startIndex, offsetBy: 4)]) 
