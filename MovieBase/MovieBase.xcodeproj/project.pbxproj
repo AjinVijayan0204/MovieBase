@@ -36,6 +36,8 @@
 		87787C732C593343006A61CE /* SwiftDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C722C593343006A61CE /* SwiftDataModels.swift */; };
 		87787C762C5938D3006A61CE /* SwiftDataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C752C5938D3006A61CE /* SwiftDataSources.swift */; };
 		87787C782C594660006A61CE /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C772C594660006A61CE /* FavouritesView.swift */; };
+		87787C7B2C5AA7CC006A61CE /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C7A2C5AA7CC006A61CE /* Datasource.swift */; };
+		87787C7D2C5AB068006A61CE /* FavouritesViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C7C2C5AB068006A61CE /* FavouritesViewVM.swift */; };
 		87AFF7D52C46D1CE0096A013 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D42C46D1CE0096A013 /* ViewExtensions.swift */; };
 		87AFF7D82C46D2610096A013 /* CustomViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D72C46D2610096A013 /* CustomViewModifiers.swift */; };
 		87AFF7DA2C46DF3A0096A013 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */; };
@@ -74,6 +76,8 @@
 		87787C722C593343006A61CE /* SwiftDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataModels.swift; sourceTree = "<group>"; };
 		87787C752C5938D3006A61CE /* SwiftDataSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataSources.swift; sourceTree = "<group>"; };
 		87787C772C594660006A61CE /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		87787C7A2C5AA7CC006A61CE /* Datasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
+		87787C7C2C5AB068006A61CE /* FavouritesViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewVM.swift; sourceTree = "<group>"; };
 		87AFF7D42C46D1CE0096A013 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		87AFF7D72C46D2610096A013 /* CustomViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifiers.swift; sourceTree = "<group>"; };
 		87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 		874E9BDB2C3B00C1000719D9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				87787C792C5AA7B8006A61CE /* DataSource */,
 				87787C702C5932C2006A61CE /* Swift Data */,
 				87787C6F2C593138006A61CE /* API */,
 				874E9BEB2C3C6DA5000719D9 /* Repository */,
@@ -204,6 +209,7 @@
 				87AFF7DB2C46DF510096A013 /* MovieDetailViewModel.swift */,
 				87787C5B2C49917C006A61CE /* TrendingMovieViewModel.swift */,
 				87787C602C4C2C03006A61CE /* HorizontalScrollViewModel.swift */,
+				87787C7C2C5AB068006A61CE /* FavouritesViewVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -309,6 +315,14 @@
 			path = DataSources;
 			sourceTree = "<group>";
 		};
+		87787C792C5AA7B8006A61CE /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				87787C7A2C5AA7CC006A61CE /* Datasource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		87AFF7D32C46D1BB0096A013 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87787C7B2C5AA7CC006A61CE /* Datasource.swift in Sources */,
 				874E9C052C3F198B000719D9 /* Application.swift in Sources */,
 				87787C632C4C2DBA006A61CE /* HorizontalScrollView.swift in Sources */,
 				87787C682C57DD72006A61CE /* HomeTabView.swift in Sources */,
@@ -419,6 +434,7 @@
 				87787C5C2C49917C006A61CE /* TrendingMovieViewModel.swift in Sources */,
 				876524282C56AA75008B29C3 /* MovieUseCaseImpl.swift in Sources */,
 				874E9C112C445D10000719D9 /* DataModels.swift in Sources */,
+				87787C7D2C5AB068006A61CE /* FavouritesViewVM.swift in Sources */,
 				87AFF7D82C46D2610096A013 /* CustomViewModifiers.swift in Sources */,
 				874E9C092C3F24CC000719D9 /* CardView.swift in Sources */,
 				87AFF7DA2C46DF3A0096A013 /* MovieDetailView.swift in Sources */,
