@@ -13,10 +13,12 @@ class DependencyContainer{
     let movieRepository: MovieRepository
     let movieUseCase: MovieUseCases
     let movieListViewModel: MovieListViewModel
+    let swiftModelDataSource: SwiftDataSources
     
     init() {
         self.dataSource = MovieAPIImpl()
-        self.movieRepository = MovieReposImpl(dataSource: dataSource)
+        self.swiftModelDataSource = SwiftDataSources()
+        self.movieRepository = MovieReposImpl(dataSource: dataSource, localDataSource: swiftModelDataSource)
         self.movieUseCase = MovieUseCasesImpl(repo: movieRepository)
         self.movieListViewModel = MovieListViewModel(movieUseCase: movieUseCase)
     }
