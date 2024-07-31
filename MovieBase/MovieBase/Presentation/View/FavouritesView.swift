@@ -15,25 +15,6 @@ struct FavouritesView: View {
     
     var body: some View {
         VStack {
-            TextField("Enter", text: $text)
-            Button {
-                let movie = MovieDataModel(movieId: 0,
-                                           adult: false,
-                                           originalLanguage: "En",
-                                           originalTitle: text,
-                                           overview: "",
-                                           releaseDate: "",
-                                           title: text,
-                                           runtime: 0,
-                                           posterPath: "",
-                                           voteAvg: 0)
-                dataSrc.insert(movie)
-                self.movies = dataSrc.getMovies()
-            } label: {
-                Text("Add")
-                    .foregroundStyle(.black)
-            }
-
             List{
                 ForEach(movies, id: \.self){ movie in
                     Text(movie.originalTitle)
