@@ -10,6 +10,7 @@ import Foundation
 struct MovieReposImpl: MovieRepository{
     
     var dataSource: MovieAPIImpl
+    var localDataSource: SwiftDataSources
     
     func getMovies(_ ofType: MovieEndpoint, page: Int) async -> [MovieCardModel] {
         let movies = await dataSource.getMovies(ofType, page: page)
@@ -51,4 +52,29 @@ struct MovieReposImpl: MovieRepository{
         return convertedMovie
     }
     
+    func getSavedMovies()-> [MovieDetailModel]{
+        let movies = localDataSource.getMovies()
+        let presentationModels = convertStoredMovieToCardModel(movies)
+        return presentationModels
+    }
+    
+    func convertStoredMovieToCardModel(_ movies: [MovieDataModel])-> [MovieDetailModel]{
+        var convertedMovies: [MovieDetailModel] = []
+        movies.forEach { movie in
+            convertedMovies.append(MovieDetailModel(
+                movieId: movie.movieId,
+                adult: movie.adult,
+                originalLanguage: movie.originalLanguage,
+                originalTitle: movie.originalTitle,
+                overview: movie.overview,
+                releaseDate: movie.releaseDate,
+                title: movie.title,
+                runtime: movie.runtime,
+                posterPath: movie.posterPath,
+                voteAvg: movie.voteAvg
+            )
+                                   )
+        }
+        return convertedMovies
+    }
 }

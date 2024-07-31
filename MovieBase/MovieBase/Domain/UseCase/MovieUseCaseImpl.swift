@@ -18,4 +18,8 @@ struct MovieUseCasesImpl: MovieUseCases{
     func getDetail(_ ofType: MovieEndpoint) async -> MovieDetailModel? {
         return (await repo.getDetail(ofType))
     }
+    
+    func getSavedMovies() -> [MovieDetailModel] {
+        return repo.getSavedMovies()
+    }
 }

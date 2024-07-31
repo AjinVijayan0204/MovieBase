@@ -10,4 +10,5 @@ import Foundation
 protocol MovieRepository{
     func getMovies(_ ofType: MovieEndpoint, page: Int) async -> [MovieCardModel]
     func getDetail(_ ofType: MovieEndpoint) async -> MovieDetailModel?
+    func getSavedMovies()-> [MovieDetailModel]
 }
