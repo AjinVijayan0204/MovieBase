@@ -10,7 +10,7 @@ import Foundation
 class MovieListViewModel: ObservableObject{
     
     var movieUseCase: MovieUseCases
-    let movieDetailViewModel: MovieDetailViewModel
+    var movieDetailViewModel: MovieDetailViewModel?
     let trendingMovieVM: TrendingMovieViewModel
     
     @Published var latest: MovieDetailModel?
@@ -18,7 +18,6 @@ class MovieListViewModel: ObservableObject{
     
     init(movieUseCase: MovieUseCases){
         self.movieUseCase = movieUseCase
-        self.movieDetailViewModel = MovieDetailViewModel(selectedMovieId: 0, movieUseCase: movieUseCase)
         self.trendingMovieVM = TrendingMovieViewModel(movieUseCase: movieUseCase, action: { _ in
             
         })
@@ -29,7 +28,7 @@ class MovieListViewModel: ObservableObject{
     }
     
     func getMovieDetails(id: Int){
-        self.movieDetailViewModel.selectedMovieId = id
+        self.movieDetailViewModel =  MovieDetailViewModel(selectedMovieId: id, movieUseCase: movieUseCase)
         self.toDetailScreen = true
     }
 }
