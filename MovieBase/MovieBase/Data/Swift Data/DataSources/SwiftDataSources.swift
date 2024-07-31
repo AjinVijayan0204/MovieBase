@@ -10,27 +10,29 @@ import SwiftData
 import SwiftUI
 
 class SwiftDataSources{
-    let context: ModelContext
-    
-    let container: ModelContainer
-    
+    var context: ModelContext?
+    var container: ModelContainer?
     var movies: [MovieDataModel] = []
     
     init() {
-        
-        self.container = try! ModelContainer(for: MovieDataModel.self)
-        self.context = ModelContext(self.container)
+        self.container = try? ModelContainer(for: MovieDataModel.self)
+        if let container = container{
+            self.context = ModelContext(container)
+        }
     }
     
     func insert(_ movie: MovieDataModel){
+        guard let context = self.context else { return }
         context.insert(movie)
-        print("insert")
-        try! context.save()
-        
-        print(movies)
+        do{
+            try context.save()
+        }catch{
+            print("failed")
+        }
     }
     
     func getMovies()-> [MovieDataModel]{
+        guard let context = self.context else { return [MovieDataModel]() }
         let descriptor = FetchDescriptor<MovieDataModel>()
         do{
             movies = try context.fetch(descriptor)
