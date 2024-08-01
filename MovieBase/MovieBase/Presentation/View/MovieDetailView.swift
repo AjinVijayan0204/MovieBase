@@ -27,7 +27,9 @@ struct MovieDetailView: View {
                                 
                             }
                             
-                            MovieDataDetailView(movie: movie, isLiked: $vm.isLiked)
+                            MovieDataDetailView(movie: movie, 
+                                                isLiked: $vm.isLiked,
+                                                action: vm.addFavourite)
 
                         }
                     }
@@ -52,6 +54,7 @@ struct MovieDataDetailView: View {
     let movie: MovieDetailModel
     @Binding var isLiked: Bool
     
+    var action: ()-> ()
     var body: some View {
         VStack(alignment: .leading){
             

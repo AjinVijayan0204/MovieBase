@@ -18,7 +18,7 @@ class MovieDetailViewModel: ObservableObject{
     init(selectedMovieId: Int?, movieUseCase: MovieUseCases){
         self.selectedMovieId = selectedMovieId
         self.movieUseCase = movieUseCase
-        self.isLiked = movie?.isFavourite ?? false
+        self.isLiked = findIsFavourite()
     }
     
     func getMovieDetails(){
@@ -47,7 +47,17 @@ class MovieDetailViewModel: ObservableObject{
     
     func addFavourite(){
         if let movie = self.movie{
-            movieUseCase.insertMovie(movie: movie)
+            if self.isLiked{
+                movieUseCase.insertMovie(movie: movie)
+            }else{
+                movieUseCase.deleteMovie(movie: movie)
+            }
+        }
+    }
+    
+    func findIsFavourite()-> Bool{
+        return movieUseCase.getSavedMovies().contains { movie in
+            movie.movieId == self.selectedMovieId
         }
     }
 }

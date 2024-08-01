@@ -44,7 +44,11 @@ class SwiftDataSources{
     
     func deleteMovie(_ movie: MovieDataModel){
         guard let context = self.context else { return }
-        context.delete(movie)
+        let movies = getMovies().filter { storedMovie in
+            movie.movieId == storedMovie.movieId
+        }
+        guard let movieToDelete = movies.first else { return }
+        context.delete(movieToDelete)
         do{
             try context.save()
         }catch{

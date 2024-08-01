@@ -11,13 +11,20 @@ import SwiftData
 struct FavouritesView: View {
     @State var movies: [MovieDataModel] = []
     let dataSrc = SwiftDataSources()
-    @State var text: String = ""
+    private let adaptiveColumn = [
+        GridItem(.adaptive(minimum: 150))
+    ]
     
     var body: some View {
-        VStack {
-            List{
+        ScrollView{
+            LazyVGrid(columns: adaptiveColumn, spacing: 20){
                 ForEach(movies, id: \.self){ movie in
-                    Text(movie.originalTitle)
+                    CardView(id: movie.movieId,
+                             name: movie.originalTitle,
+                             url: movie.posterPath) { _ in
+                        //
+                    }
+                             .frame(height: Screen.shared.height * 0.3)
                 }
             }
             .onAppear{
