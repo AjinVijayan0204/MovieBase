@@ -17,7 +17,7 @@ struct HomeTabView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            FavouritesView()
+            FavouritesView(vm: container.favouritesViewModel)
                 .tabItem {
                     Label("Favourite", systemImage: "heart")
                 }

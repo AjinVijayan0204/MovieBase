@@ -13,7 +13,7 @@ struct MovieCardModel: Hashable{
     let posterPath: String
 }
 
-class MovieDetailModel{
+struct MovieDetailModel: Hashable{
     let movieId: Int
     let adult: Bool
     let originalLanguage: String

@@ -9,31 +9,31 @@ import SwiftUI
 import SwiftData
 
 struct FavouritesView: View {
-    @State var movies: [MovieDataModel] = []
-    let dataSrc = SwiftDataSources()
-    private let adaptiveColumn = [
-        GridItem(.adaptive(minimum: 150))
-    ]
+    
+    @ObservedObject var vm: FavouritesViewModel
     
     var body: some View {
-        ScrollView{
-            LazyVGrid(columns: adaptiveColumn, spacing: 20){
-                ForEach(movies, id: \.self){ movie in
-                    CardView(id: movie.movieId,
-                             name: movie.originalTitle,
-                             url: movie.posterPath) { _ in
-                        //
+        GeometryReader {proxy in
+            var adaptiveColumn = Array(repeating: GridItem(), count: 2)
+            ScrollView{
+                LazyVGrid(columns: adaptiveColumn, spacing: 20){
+                    ForEach(vm.movies, id: \.self){ movie in
+                        CardView(id: movie.movieId,
+                                 name: movie.originalTitle,
+                                 url: movie.posterPath) { _ in
+                            //
+                        }
+                                 .frame(height: Screen.shared.height * 0.3)
                     }
-                             .frame(height: Screen.shared.height * 0.3)
                 }
-            }
-            .onAppear{
-                self.movies = dataSrc.getMovies()
+                .onAppear{
+                    vm.getSavedMovies()
+                }
             }
         }
     }
 }
 
 #Preview {
-    FavouritesView()
+    FavouritesView(vm: FavouritesViewModel(movies: [], movieUseCase: MovieUseCasesImpl(repo: MovieReposImpl(dataSource: MovieAPIImpl(), localDataSource: SwiftDataSources()))))
 }
