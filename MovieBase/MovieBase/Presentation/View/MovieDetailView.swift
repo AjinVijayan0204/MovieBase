@@ -77,6 +77,7 @@ struct MovieDataDetailView: View {
                     .movieAction()
                     .onTapGesture {
                         isLiked.toggle()
+                        self.action()
                     }
                 Spacer()
             }
