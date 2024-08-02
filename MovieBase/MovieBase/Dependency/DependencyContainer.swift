@@ -13,6 +13,7 @@ class DependencyContainer{
     let movieRepository: MovieRepository
     let movieUseCase: MovieUseCases
     let movieListViewModel: MovieListViewModel
+    let favouritesViewModel: FavouritesViewModel
     let swiftModelDataSource: SwiftDataSources
     
     init() {
@@ -20,6 +21,7 @@ class DependencyContainer{
         self.swiftModelDataSource = SwiftDataSources()
         self.movieRepository = MovieReposImpl(dataSource: dataSource, localDataSource: swiftModelDataSource)
         self.movieUseCase = MovieUseCasesImpl(repo: movieRepository)
+        self.favouritesViewModel = FavouritesViewModel(movies: [], movieUseCase: movieUseCase)
         self.movieListViewModel = MovieListViewModel(movieUseCase: movieUseCase)
     }
 }
