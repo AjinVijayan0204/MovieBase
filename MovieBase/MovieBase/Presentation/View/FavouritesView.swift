@@ -35,5 +35,5 @@ struct FavouritesView: View {
 }
 
 #Preview {
-    FavouritesView(vm: FavouritesViewModel(movies: [], movieUseCase: MovieUseCasesImpl(repo: MovieReposImpl(dataSource: MovieAPIImpl(), localDataSource: SwiftDataSources()))))
+    FavouritesView(vm: FavouritesViewModel(movieUseCase: MovieUseCasesImpl(repo: MovieReposImpl(dataSource: MovieAPIImpl(), localDataSource: SwiftDataSources()))))
 }

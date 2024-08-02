@@ -13,7 +13,6 @@ class FavouritesViewModel: ObservableObject{
     var movieUseCase: MovieUseCases
     
     init(movieUseCase: MovieUseCases) {
-        self.movies = movies
         self.movieUseCase = movieUseCase
     }
     
