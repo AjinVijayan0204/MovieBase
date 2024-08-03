@@ -14,7 +14,7 @@ class HorizontalScrollViewModel: ObservableObject{
     var movieUseCase: MovieUseCases
     var page: Int = 1
     
-    @Published var moviesList: [MovieCardModel] = Array(repeating: MovieCardModel(movieId: 0, originalTitle: "", posterPath: ""), count: 5)
+    @Published var moviesList: [MovieCardModel] = []
     
     var action: (Int)-> ()
     
@@ -40,10 +40,11 @@ class HorizontalScrollViewModel: ObservableObject{
     }
     
     func loadMovies(){
+        self.moviesList = createDummyArray()
         Task{
             let movies = await getMoviesForList(self.type)
             await MainActor.run {
-                self.moviesList = (movies.isEmpty) ? Array(repeating: MovieCardModel(movieId: 0, originalTitle: "", posterPath: ""), count: 5) : movies
+                self.moviesList = (movies.isEmpty) ? createDummyArray() : movies
             }
         }
         
@@ -57,5 +58,13 @@ class HorizontalScrollViewModel: ObservableObject{
                 self.moviesList.append(contentsOf: movies)
             }
         }
+    }
+    
+    func createDummyArray()-> [MovieCardModel]{
+        var models: [MovieCardModel] = []
+        for _ in 0...5{
+            models.append(MovieCardModel(movieId: 0, originalTitle: "", posterPath: ""))
+        }
+        return models
     }
 }
