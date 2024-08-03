@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct MovieCardModel: Hashable{
+struct MovieCardModel: Hashable, Identifiable{
+    let id = UUID()
     let movieId: Int
     let originalTitle: String
     let posterPath: String

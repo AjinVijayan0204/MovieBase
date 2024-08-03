@@ -18,6 +18,7 @@ struct NetworkImageView: View {
         GeometryReader { proxy in
             CardView(id: id, name: "", url: imgUrl, action: action)
                 .frame(height: proxy.size.height)
+                .aspectRatio(16/4, contentMode: .fit)
         }
         
     }
