@@ -17,6 +17,7 @@ struct Config{
     var apiToken: String = ""
     var imgBaseUrl: String = ""
     var apiKey: String = ""
+    var downloadBaseUrl = ""
     init(){
         if let configFile = Bundle.main.path(forResource: Strings.configPlist, ofType: Strings.plist){
             let fileUrl = URL(filePath: configFile)
@@ -25,6 +26,7 @@ struct Config{
                 self.apiToken = details["api_token"] as? String ?? ""
                 self.imgBaseUrl = details["api_image_base_url"] as? String ?? ""
                 self.apiKey = details["api_key"] as? String ?? ""
+                self.downloadBaseUrl = details["api_image_download_url"] as? String ?? ""
             }
         }
     }

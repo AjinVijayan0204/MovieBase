@@ -24,6 +24,7 @@ struct MovieDetailModel: Hashable{
     let runtime: Double
     let posterPath: String
     let voteAvg: Double
+    var poster: Data?
     var isFavourite: Bool = false
     
     var releaseYear: String{
@@ -36,7 +37,7 @@ struct MovieDetailModel: Hashable{
         return "\(Int(runtime/60)) hr \(Int(runtime.truncatingRemainder(dividingBy: 60))) min"
     }
     
-    init(movieId: Int, adult: Bool, originalLanguage: String, originalTitle: String, overview: String, releaseDate: String, title: String, runtime: Double, posterPath: String, voteAvg: Double) {
+    init(movieId: Int, adult: Bool, originalLanguage: String, originalTitle: String, overview: String, releaseDate: String, title: String, runtime: Double, posterPath: String, voteAvg: Double, poster: Data? = nil) {
         self.movieId = movieId
         self.adult = adult
         self.originalLanguage = originalLanguage
@@ -47,6 +48,7 @@ struct MovieDetailModel: Hashable{
         self.runtime = runtime
         self.posterPath = posterPath
         self.voteAvg = voteAvg
+        self.poster = poster
     }
 }
 

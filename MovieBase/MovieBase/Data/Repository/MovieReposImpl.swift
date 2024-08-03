@@ -71,7 +71,8 @@ struct MovieReposImpl: MovieRepository{
                 title: movie.title,
                 runtime: movie.runtime,
                 posterPath: movie.posterPath,
-                voteAvg: movie.voteAvg
+                voteAvg: movie.voteAvg,
+                poster: movie.poster
             )
                                    )
         }

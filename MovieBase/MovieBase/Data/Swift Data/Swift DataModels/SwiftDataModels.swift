@@ -20,6 +20,7 @@ class MovieDataModel{
     let runtime: Double
     let posterPath: String
     let voteAvg: Double
+    var poster: Data?
     
     init(movieId: Int, adult: Bool, originalLanguage: String, originalTitle: String, overview: String, releaseDate: String, title: String, runtime: Double, posterPath: String, voteAvg: Double) {
         self.movieId = movieId

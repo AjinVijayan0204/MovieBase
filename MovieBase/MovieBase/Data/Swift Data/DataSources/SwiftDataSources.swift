@@ -23,11 +23,16 @@ class SwiftDataSources{
     
     func insert(_ movie: MovieDataModel){
         guard let context = self.context else { return }
-        context.insert(movie)
-        do{
-            try context.save()
-        }catch{
-            print("failed")
+        guard let url = URL(string: Config().downloadBaseUrl + movie.posterPath) else { return }
+        Task{
+            do{
+                let (data, _) = try await URLSession.shared.data(for: URLRequest(url: url))
+                movie.poster = data
+                context.insert(movie)
+                try context.save()
+            }catch{
+                print("failed")
+            }
         }
     }
     
