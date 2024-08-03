@@ -18,16 +18,22 @@ struct MovieDetailView: View {
                     ScrollView(.vertical) {
                         VStack(alignment: .leading){
                             
-                            ZStack(alignment: .bottomTrailing) {
+                            if vm.isOnline {
                                 NetworkImageView(mode: .card,
                                                  id: movie.movieId,
                                                  imgUrl: movie.posterPath,
                                                  action: vm.dummy(num:))
                                 .frame(height: proxy.size.height * 0.35)
-                                
+                            } else {
+                                OfflineImageView(movie: movie, action: { _ in
+                                    //
+                                })
+                                    .frame(height: proxy.size.height * 0.35)
                             }
                             
-                            MovieDataDetailView(movie: movie, 
+                            
+                            MovieDataDetailView(movie: movie,
+                                                isOnline: vm.isOnline,
                                                 isLiked: $vm.isLiked,
                                                 action: vm.addFavourite)
 
@@ -52,37 +58,40 @@ struct MovieDetailView: View {
 struct MovieDataDetailView: View {
     
     let movie: MovieDetailModel
+    let isOnline: Bool
+    
     @Binding var isLiked: Bool
     
     var action: ()-> ()
     var body: some View {
         VStack(alignment: .leading){
-            
-            HStack(){
-                Spacer()
-                Image(systemName: "plus")
-                    .resizable()
-                    .frame(width: 20)
-                    .movieAction()
-                Spacer()
-                Image(systemName: "hand.thumbsup")
-                    .resizable()
-                    .frame(width: 20)
-                    .movieAction()
-                Spacer()
-                Image(systemName: "heart.fill")
-                    .resizable()
-                    .frame(width: 20)
-                    .foregroundStyle(isLiked ? .red : .white)
-                    .movieAction()
-                    .onTapGesture {
-                        isLiked.toggle()
-                        self.action()
-                    }
-                Spacer()
+            if isOnline{
+                HStack(){
+                    Spacer()
+                    Image(systemName: "plus")
+                        .resizable()
+                        .frame(width: 20)
+                        .movieAction()
+                    Spacer()
+                    Image(systemName: "hand.thumbsup")
+                        .resizable()
+                        .frame(width: 20)
+                        .movieAction()
+                    Spacer()
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .frame(width: 20)
+                        .foregroundStyle(isLiked ? .red : .white)
+                        .movieAction()
+                        .onTapGesture {
+                            isLiked.toggle()
+                            self.action()
+                        }
+                    Spacer()
+                }
+                .padding(.vertical, 10)
             }
-            .padding(.vertical, 10)
-            
+           
             Text(movie.originalTitle)
                 .movieHeader()
                 .padding(.vertical, 10)

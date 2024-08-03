@@ -11,18 +11,23 @@ class MovieDetailViewModel: ObservableObject{
     
     var selectedMovieId: Int?
     var movieUseCase: MovieUseCases
+    var isOnline: Bool
     
     @Published var isLiked: Bool = false
     @Published var movie: MovieDetailModel?
     
-    init(selectedMovieId: Int?, movieUseCase: MovieUseCases){
+    init(selectedMovieId: Int?, movieUseCase: MovieUseCases, isOnline: Bool = true, movie: MovieDetailModel? = nil){
         self.selectedMovieId = selectedMovieId
         self.movieUseCase = movieUseCase
+        self.movie = movie
+        self.isOnline = isOnline
         self.isLiked = findIsFavourite()
     }
     
     func getMovieDetails(){
-        self.getMovieDetails(.movieDetail(id: selectedMovieId ?? 0))
+        if isOnline{
+            self.getMovieDetails(.movieDetail(id: selectedMovieId ?? 0))
+        }
     }
     
     func getMovieDetails(_ ofType: MovieEndpoint){
