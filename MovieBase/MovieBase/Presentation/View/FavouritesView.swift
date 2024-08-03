@@ -25,10 +25,8 @@ struct FavouritesView: View {
                 ScrollView(.vertical){
                     LazyVGrid(columns: adaptiveColumn, spacing: 20){
                         ForEach(vm.movies, id: \.self){ movie in
-                            if let poster = movie.poster{
-                                OfflineImageView(movie: movie, action: vm.moveToDetailView(_:))
-                                    .frame(width: proxy.size.width * 0.3, height: proxy.size.height * 0.3)
-                            }
+                            OfflineImageView(movie: movie, action: vm.moveToDetailView(_:))
+                                .frame(width: proxy.size.width * 0.3, height: proxy.size.height * 0.3)
                            
                         }
                     }
