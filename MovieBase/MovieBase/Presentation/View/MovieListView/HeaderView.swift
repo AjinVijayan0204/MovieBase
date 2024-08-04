@@ -13,22 +13,26 @@ struct HeaderView: View {
             HStack{
                 Image("icon_header")
                     .resizable()
-                    .headerImageStyle()
-                    .frame(height: proxy.size.height * 0.1)
+                    .frame(width: proxy.size.width * 0.2)
+                    .border(.white)
                 
                 Spacer()
+                    .frame(width: proxy.size.width * 0.5)
                 Image(systemName: "magnifyingglass")
                     .resizable()
+                    .foregroundStyle(.white)
                     .headerImageStyle()
-                    .frame(height: proxy.size.height * 0.03)
+                    .frame(height: proxy.size.height * 0.7)
                     .padding(.horizontal)
+                    .border(.white)
                 Image(systemName: "person.circle.fill")
                     .resizable()
                     .headerImageStyle()
-                    .frame(height: proxy.size.height * 0.03)
+                    .frame(height: proxy.size.height * 0.5)
+                    .border(.white)
             }
-            .frame(height: proxy.size.height * 0.05)
-            .padding(.top, proxy.size.height * 0.05)
+            .padding(.top, proxy.size.height * 0.3)
+            .frame(width: proxy.size.width, height: proxy.size.height)
             .ignoresSafeArea()
         }
     }
