@@ -23,6 +23,8 @@ struct MovieListView: View {
                         
                         HorizontalScrollView(vm: vm.createViewModel(.topRated))
                             .frame(width: proxy.size.width, height: proxy.size.height * 0.3)
+                        Spacer()
+                            .frame(height: UITabBarController().tabBar.frame.height * 2)
                     }
                     
                     ZStack {

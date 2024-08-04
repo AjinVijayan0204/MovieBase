@@ -31,8 +31,9 @@ struct FavouritesView: View {
                                 .frame(width: proxy.size.width * 0.3, height: proxy.size.height * 0.3)
                         }
                     })
+                    Spacer()
+                        .frame(height: UITabBarController().tabBar.frame.height * 2)
                 }
-                .padding(.bottom, proxy.size.height * 0.15)
                 .onAppear{
                     vm.getSavedMovies()
                 }
