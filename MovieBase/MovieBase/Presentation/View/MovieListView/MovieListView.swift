@@ -32,7 +32,7 @@ struct MovieListView: View {
                     
                     HeaderView()
                         .frame(width: proxy.size.width * 0.98, height: proxy.size.height * 0.1)
-                    .border(.white)
+                    
                 }
             }
             .background(.black)
