@@ -41,11 +41,34 @@ struct MovieDataDetailView: View {
                     }
                     .border(.black)
                 }
+                
+                Text(movie.originalTitle)
+                    .movieHeader()
+                    .padding(.vertical, 10)
+                
+                HStack{
+                    Group{
+                        Text(movie.releaseYear)
+                            .bold()
+                        Text("\(movie.likedPercentage)% Like")
+                            .padding(.horizontal, 8)
+                            .background {
+                                Color.gray
+                            }
+                        Text(movie.duration)
+                    }
+                    .padding(.trailing)
+                    .foregroundStyle(.white)
+                }
+                Text(movie.overview)
+                    .font(.system(size: 14))
+                    .foregroundStyle(.white)
+                    .padding(.top, 8)
             })
         }
     }
 }
 
-#Preview {
-    MovieDataDetailView(movie: MovieDetailModel(movieId: 0, adult: false, originalLanguage: "", originalTitle: "", overview: "", releaseDate: "", title: "", runtime: 0, posterPath: "", voteAvg: 0), isOnline: true, isLiked: .constant(false), action: {})
-}
+//#Preview {
+//    MovieDataDetailView(movie: MovieDetailModel(movieId: 0, adult: false, originalLanguage: "", originalTitle: "", overview: "", releaseDate: "", title: "", runtime: 0, posterPath: "", voteAvg: 0), isOnline: true, isLiked: .constant(false), action: {})
+//}
