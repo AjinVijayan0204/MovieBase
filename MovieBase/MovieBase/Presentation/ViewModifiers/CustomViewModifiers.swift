@@ -20,7 +20,7 @@ struct SectionHeader: ViewModifier{
 struct MovieHeader: ViewModifier{
     func body(content: Content) -> some View {
         content
-            .font(.title3)
+            .font(.system(size: 28))
             .bold()
             .foregroundStyle(.white)
     }
@@ -30,7 +30,7 @@ struct DetailViewActions: ViewModifier{
     func body(content: Content) -> some View {
         content
             .bold()
-            .foregroundStyle(.black)
+            .foregroundStyle(.white)
             .aspectRatio(1, contentMode: .fit)
     }
 }

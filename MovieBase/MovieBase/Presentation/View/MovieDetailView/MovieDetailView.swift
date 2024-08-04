@@ -18,10 +18,11 @@ struct MovieDetailView: View {
                                     isOnline: vm.isOnline,
                                     isLiked: $vm.isLiked,
                                     action: vm.addFavourite)
-                .frame(width: proxy.size.width, height: proxy.size.height * 0.04)
+                .frame(width: proxy.size.width, height: proxy.size.height)
             }
             
         }
+        .background(.black)
         .onAppear{
             vm.getMovieDetails()
         }

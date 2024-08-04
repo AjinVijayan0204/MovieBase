@@ -17,29 +17,30 @@ struct MovieDataDetailView: View {
     
     var body: some View {
         GeometryReader{ proxy in
-            VStack(alignment: .center, content: {
+            VStack(alignment: .leading, content: {
                 if isOnline{
                     HStack(){
                         Spacer()
+                            
                         Image(systemName: "plus")
                             .resizable()
                             .movieAction()
-                            .frame(width: proxy.size.width * 0.3)
                             .border(.white)
                         Spacer()
                         Image(systemName: "hand.thumbsup")
                             .resizable()
                             .movieAction()
-                            .frame(width: proxy.size.width * 0.3)
                             .border(.white)
                         Spacer()
                         Image(systemName: "heart.fill")
                             .resizable()
                             .movieAction()
-                            .frame(width: proxy.size.width * 0.3)
                             .border(.white)
+                        Spacer()
+                            
                     }
-                    .border(.black)
+                    .frame(height: proxy.size.height * 0.03)
+                    .border(.white)
                 }
                 
                 Text(movie.originalTitle)
@@ -61,10 +62,14 @@ struct MovieDataDetailView: View {
                     .foregroundStyle(.white)
                 }
                 Text(movie.overview)
-                    .font(.system(size: 14))
+                    .font(.title3)
                     .foregroundStyle(.white)
                     .padding(.top, 8)
+                    .border(.yellow)
             })
+            .frame(width: proxy.size.width, height: proxy.size.height)
+            .border(.white)
+            .background(.black)
         }
     }
 }
