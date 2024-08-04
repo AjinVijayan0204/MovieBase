@@ -23,14 +23,24 @@ struct MovieListView: View {
                     HorizontalScrollView(vm: vm.createViewModel(.topRated))
                         .frame(width: proxy.size.width, height: proxy.size.height * 0.3)
                 }
+                .padding(.bottom, proxy.size.height * 0.1)
                 
-                HeaderView()
-                    .frame(width: proxy.size.width * 0.98, height: proxy.size.height * 0.1)
+                ZStack {
+                    Color.black
+                        .frame(width: proxy.size.width * 1, height: proxy.size.height * 0.1)
+                        .opacity(0.4)
+                    
+                    HeaderView()
+                        .frame(width: proxy.size.width * 0.98, height: proxy.size.height * 0.1)
                     .border(.white)
+                }
             }
             .background(.black)
         }
         .ignoresSafeArea()
+        .navigationDestination(isPresented: $vm.toDetailScreen) {
+            MovieDetailView(vm: vm.movieDetailViewModel)
+        }
     }
 }
 

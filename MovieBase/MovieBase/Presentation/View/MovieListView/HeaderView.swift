@@ -14,7 +14,6 @@ struct HeaderView: View {
                 Image("icon_header")
                     .resizable()
                     .frame(width: proxy.size.width * 0.2)
-                    .border(.white)
                 
                 Spacer()
                     
@@ -24,12 +23,10 @@ struct HeaderView: View {
                     .headerImageStyle()
                     .frame(height: proxy.size.height * 0.4)
                     .padding(.horizontal, proxy.size.width * 0.01)
-                    .border(.white)
                 Image(systemName: "person.circle.fill")
                     .resizable()
                     .headerImageStyle()
                     .frame(height: proxy.size.height * 0.4)
-                    .border(.white)
             }
             .padding(.top, proxy.size.height * 0.5)
             .frame(width: proxy.size.width, height: proxy.size.height)
