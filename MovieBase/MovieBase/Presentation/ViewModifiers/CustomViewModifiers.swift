@@ -30,7 +30,8 @@ struct DetailViewActions: ViewModifier{
     func body(content: Content) -> some View {
         content
             .bold()
-            .foregroundStyle(.white)
+            .foregroundStyle(.black)
+            .aspectRatio(1, contentMode: .fit)
     }
 }
 
