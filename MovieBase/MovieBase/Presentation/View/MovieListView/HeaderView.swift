@@ -17,13 +17,13 @@ struct HeaderView: View {
                     .border(.white)
                 
                 Spacer()
-                    .frame(width: proxy.size.width * 0.5)
+                    
                 Image(systemName: "magnifyingglass")
                     .resizable()
                     .foregroundStyle(.white)
                     .headerImageStyle()
-                    .frame(height: proxy.size.height * 1)
-                    .padding(.horizontal)
+                    .frame(height: proxy.size.height * 0.4)
+                    .padding(.horizontal, proxy.size.width * 0.01)
                     .border(.white)
                 Image(systemName: "person.circle.fill")
                     .resizable()

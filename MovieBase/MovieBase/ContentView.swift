@@ -22,7 +22,9 @@ struct ContentView: View {
         NavigationStack {
             HomeTabView(container: container)
                 .ignoresSafeArea()
-        }.tint(.white)
+                
+        }
+        .background(.black)
     }
 }
 
