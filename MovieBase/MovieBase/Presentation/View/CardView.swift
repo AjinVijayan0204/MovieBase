@@ -25,36 +25,9 @@ struct CardView: View{
     }
     
     var body: some View{
-        GeometryReader { proxy in
-            Rectangle()
-                .foregroundStyle(Color.white)
-                .overlay{
-                    ZStack() {
-                        if (type == .normal) {
-                            AsyncImage(url: URL(string: Config().imgBaseUrl + url)) { img in
-                                ZStack {
-                                    img
-                                        .resizable()
-                                    Color.black
-                                        .opacity(0.4)
-                                    
-                                }
-                            } placeholder: {
-                                AnimatedCard()
-                            }
-                        } else {
-                            ProgressView()
-                                .tint(.black)
-                        }
-                    }
-                }
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .onTapGesture {
-                    action(id)
-            }
-                
-        }
+        VStack{
             
+        }
     }
 }
 

@@ -22,11 +22,7 @@ struct HomeTabView: View {
                     Label("Favourite", systemImage: "heart")
                 }
         }
-        .tint(.white)
-        .onAppear{
-            UITabBar.appearance().barTintColor = .black
-            UITabBar.appearance().backgroundColor = .black
-        }
+        .background(.black)
     }
 }
 

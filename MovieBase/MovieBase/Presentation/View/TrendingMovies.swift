@@ -12,21 +12,8 @@ struct TrendingMovies: View {
     @StateObject var vm: TrendingMovieViewModel
     
     var body: some View {
-        TabView(selection: $vm.selectedIndex,
-                content:  {
-            ForEach(0..<5) { index in
-                
-                NetworkImageView(mode: .expanded,
-                                 id: vm.upcoming[index].movieId,
-                                 imgUrl: vm.upcoming[index].posterPath,
-                                 action: vm.action)
-                .tag(index)
-            }
-        })
-        .tabViewStyle(.page)
-        .background(Color.black)
-        .onAppear{
-            vm.getUpcomingMovies()
+        VStack{
+            
         }
     }
 }

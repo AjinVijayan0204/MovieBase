@@ -12,45 +12,8 @@ struct MovieDetailView: View {
     @StateObject var vm: MovieDetailViewModel
     
     var body: some View {
-        GeometryReader { proxy in
-            VStack{
-                if let movie = vm.movie{
-                    ScrollView(.vertical) {
-                        VStack(alignment: .leading){
-                            
-                            if vm.isOnline {
-                                NetworkImageView(mode: .card,
-                                                 id: movie.movieId,
-                                                 imgUrl: movie.posterPath,
-                                                 action: vm.dummy(num:))
-                                .frame(height: proxy.size.height * 0.35)
-                            } else {
-                                OfflineImageView(movie: movie, action: { _ in
-                                    //
-                                })
-                                    .frame(height: proxy.size.height * 0.35)
-                            }
-                            
-                            
-                            MovieDataDetailView(movie: movie,
-                                                isOnline: vm.isOnline,
-                                                isLiked: $vm.isLiked,
-                                                action: vm.addFavourite)
-
-                        }
-                    }
-                }else{
-                    ProgressView()
-                        .tint(Color.white)
-                        .frame(width: proxy.size.width, height: proxy.size.height)
-                        
-                }
-            }
-            .padding(.horizontal)
-            .background(Color.black)
-            .onAppear{
-                vm.getMovieDetails()
-            }
+        VStack{
+            
         }
     }
 }

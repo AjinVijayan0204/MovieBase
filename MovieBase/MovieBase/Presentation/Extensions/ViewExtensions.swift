@@ -20,4 +20,8 @@ extension View{
     func movieAction()-> some View{
         modifier(DetailViewActions())
     }
+    
+    func headerImageStyle()-> some View{
+        modifier(HeaderViewImage())
+    }
 }

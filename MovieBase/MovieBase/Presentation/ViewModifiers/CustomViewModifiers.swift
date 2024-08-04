@@ -33,3 +33,11 @@ struct DetailViewActions: ViewModifier{
             .foregroundStyle(.white)
     }
 }
+
+struct HeaderViewImage: ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(.white)
+            .aspectRatio(1, contentMode: .fit)
+    }
+}
