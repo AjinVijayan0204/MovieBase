@@ -21,59 +21,64 @@ struct MovieDataDetailView: View {
                 if isOnline{
                     HStack(){
                         Spacer()
-                            
                         Image(systemName: "plus")
                             .resizable()
                             .movieAction()
-                            .border(.white)
+                            
                         Spacer()
                         Image(systemName: "hand.thumbsup")
                             .resizable()
                             .movieAction()
-                            .border(.white)
+                            
                         Spacer()
                         Image(systemName: "heart.fill")
                             .resizable()
+                            .foregroundStyle(self.isLiked ? .red : .white)
                             .movieAction()
-                            .border(.white)
+                            .onTapGesture {
+                                isLiked.toggle()
+                                self.action()
+                            }
                         Spacer()
                             
                     }
-                    .frame(height: proxy.size.height * 0.03)
-                    .border(.white)
+                    .frame(height: proxy.size.height * 0.05)
+                    
                 }
                 
-                Text(movie.originalTitle)
-                    .movieHeader()
-                    .padding(.vertical, 10)
-                
-                HStack{
-                    Group{
-                        Text(movie.releaseYear)
-                            .bold()
-                        Text("\(movie.likedPercentage)% Like")
-                            .padding(.horizontal, 8)
-                            .background {
-                                Color.gray
-                            }
-                        Text(movie.duration)
+                VStack(alignment: .leading){
+                    Text(movie.originalTitle)
+                        .movieHeader()
+                        .padding(.vertical, 10)
+                    
+                    HStack{
+                        Group{
+                            Text(movie.releaseYear)
+                                .bold()
+                            Text("\(movie.likedPercentage)% Like")
+                                .padding(.horizontal, 8)
+                                .background {
+                                    Color.gray
+                                }
+                            Text(movie.duration)
+                        }
+                        .padding(.trailing)
+                        .foregroundStyle(.white)
                     }
-                    .padding(.trailing)
-                    .foregroundStyle(.white)
+                    Text(movie.overview)
+                        .font(.system(size: (UIDevice.current.userInterfaceIdiom == .pad) ? 25 : 14))
+                        .foregroundStyle(.white)
+                        .padding(.top, 8)
                 }
-                Text(movie.overview)
-                    .font(.title3)
-                    .foregroundStyle(.white)
-                    .padding(.top, 8)
-                    .border(.yellow)
+                .padding(.horizontal)
+                    
             })
-            .frame(width: proxy.size.width, height: proxy.size.height)
-            .border(.white)
+            .frame(width: proxy.size.width, height: proxy.size.height, alignment: .top)
             .background(.black)
         }
     }
 }
 
-//#Preview {
-//    MovieDataDetailView(movie: MovieDetailModel(movieId: 0, adult: false, originalLanguage: "", originalTitle: "", overview: "", releaseDate: "", title: "", runtime: 0, posterPath: "", voteAvg: 0), isOnline: true, isLiked: .constant(false), action: {})
-//}
+#Preview {
+    MovieDataDetailView(movie: MovieDetailModel(movieId: 0, adult: false, originalLanguage: "", originalTitle: "", overview: "", releaseDate: "", title: "", runtime: 0, posterPath: "", voteAvg: 0), isOnline: true, isLiked: .constant(false), action: {})
+}

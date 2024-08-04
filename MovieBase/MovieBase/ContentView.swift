@@ -23,7 +23,7 @@ struct ContentView: View {
             HomeTabView(container: container)
                 .ignoresSafeArea()
                 
-        }
+        }.tint(.white)
         .background(.black)
     }
 }
