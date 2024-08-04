@@ -13,12 +13,17 @@ struct MovieDetailView: View {
     var body: some View {
         GeometryReader{ proxy in
             if let movie = vm.movie{
+                
                 MovieDataDetailView(movie: movie,
                                     isOnline: vm.isOnline,
                                     isLiked: $vm.isLiked,
                                     action: vm.addFavourite)
+                .frame(width: proxy.size.width, height: proxy.size.height * 0.04)
             }
             
+        }
+        .onAppear{
+            vm.getMovieDetails()
         }
     }
 }
