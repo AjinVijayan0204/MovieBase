@@ -14,14 +14,13 @@ struct MovieListView: View {
         GeometryReader{ proxy in
             ZStack(alignment: .top){
                 ScrollView(.vertical) {
-                    Color.yellow
+                    TrendingMovies(vm: vm.trendingMovieVM)
                         .frame(height: proxy.size.height * 0.6)
                 }
                 
                 HeaderView()
                     .frame(height: proxy.size.height * 0.1)
                     .padding(.horizontal, proxy.size.width * 0.05)
-                    .padding(.top)
                     .border(.white)
             }
             .background(.black)
