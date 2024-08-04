@@ -11,23 +11,25 @@ struct HeaderView: View {
     var body: some View {
         GeometryReader{ proxy in
             HStack{
-                Image(systemName: "leaf.fill")
+                Image("icon_header")
                     .resizable()
                     .headerImageStyle()
-                    .frame(width: proxy.size.width * 0.15)
+                    .frame(height: proxy.size.height * 0.1)
+                
                 Spacer()
                 Image(systemName: "magnifyingglass")
                     .resizable()
                     .headerImageStyle()
-                    .frame(height: proxy.size.height * 0.04)
+                    .frame(height: proxy.size.height * 0.03)
                     .padding(.horizontal)
                 Image(systemName: "person.circle.fill")
                     .resizable()
                     .headerImageStyle()
-                    .frame(height: proxy.size.height * 0.04)
+                    .frame(height: proxy.size.height * 0.03)
             }
-            .border(.black)
             .frame(height: proxy.size.height * 0.05)
+            .padding(.top, proxy.size.height * 0.05)
+            .ignoresSafeArea()
         }
     }
 }

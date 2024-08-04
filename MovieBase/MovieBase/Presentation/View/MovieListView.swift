@@ -15,12 +15,10 @@ struct MovieListView: View {
         GeometryReader{ proxy in
             VStack{
                 HeaderView()
-                    .border(.black)
+                    .padding(.horizontal, proxy.size.width * 0.03)
             }
-            .padding(.horizontal, proxy.size.width * 0.05)
-            .padding(.top, proxy.size.height * 0.05)
+            .background(.black)
         }
-        .background(.black)
         .ignoresSafeArea()
     }
 }
