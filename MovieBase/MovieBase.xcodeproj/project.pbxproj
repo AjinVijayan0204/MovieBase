@@ -27,7 +27,6 @@
 		87787C5C2C49917C006A61CE /* TrendingMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C5B2C49917C006A61CE /* TrendingMovieViewModel.swift */; };
 		87787C5F2C49A1C6006A61CE /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C5E2C49A1C6006A61CE /* Enum.swift */; };
 		87787C612C4C2C03006A61CE /* HorizontalScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C602C4C2C03006A61CE /* HorizontalScrollViewModel.swift */; };
-		87787C632C4C2DBA006A61CE /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C622C4C2DBA006A61CE /* HorizontalScrollView.swift */; };
 		87787C662C5032BD006A61CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87787C652C5032BD006A61CE /* Launch Screen.storyboard */; };
 		87787C682C57DD72006A61CE /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C672C57DD72006A61CE /* HomeTabView.swift */; };
 		87787C6C2C57EA83006A61CE /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C6B2C57EA83006A61CE /* DependencyContainer.swift */; };
@@ -42,6 +41,7 @@
 		87787C852C5F7F65006A61CE /* TrendingMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C842C5F7F65006A61CE /* TrendingMovies.swift */; };
 		87787C872C5F8703006A61CE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C862C5F8703006A61CE /* CardView.swift */; };
 		87787C892C5F8775006A61CE /* SkeletonCardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C882C5F8775006A61CE /* SkeletonCardLoader.swift */; };
+		87787C8B2C5F8B7B006A61CE /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87787C8A2C5F8B7B006A61CE /* HorizontalScrollView.swift */; };
 		87AFF7D52C46D1CE0096A013 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D42C46D1CE0096A013 /* ViewExtensions.swift */; };
 		87AFF7D82C46D2610096A013 /* CustomViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D72C46D2610096A013 /* CustomViewModifiers.swift */; };
 		87AFF7DA2C46DF3A0096A013 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */; };
@@ -70,7 +70,6 @@
 		87787C5B2C49917C006A61CE /* TrendingMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovieViewModel.swift; sourceTree = "<group>"; };
 		87787C5E2C49A1C6006A61CE /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		87787C602C4C2C03006A61CE /* HorizontalScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollViewModel.swift; sourceTree = "<group>"; };
-		87787C622C4C2DBA006A61CE /* HorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
 		87787C652C5032BD006A61CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		87787C672C57DD72006A61CE /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		87787C6B2C57EA83006A61CE /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		87787C842C5F7F65006A61CE /* TrendingMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovies.swift; sourceTree = "<group>"; };
 		87787C862C5F8703006A61CE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		87787C882C5F8775006A61CE /* SkeletonCardLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCardLoader.swift; sourceTree = "<group>"; };
+		87787C8A2C5F8B7B006A61CE /* HorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
 		87AFF7D42C46D1CE0096A013 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		87AFF7D72C46D2610096A013 /* CustomViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifiers.swift; sourceTree = "<group>"; };
 		87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
@@ -242,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				876524432C5F5FAF008B29C3 /* MovieListView */,
-				87787C622C4C2DBA006A61CE /* HorizontalScrollView.swift */,
 				87AFF7D92C46DF3A0096A013 /* MovieDetailView.swift */,
 				87787C652C5032BD006A61CE /* Launch Screen.storyboard */,
 				87787C772C594660006A61CE /* FavouritesView.swift */,
@@ -277,6 +276,7 @@
 				87787C802C5F6977006A61CE /* MovieListView.swift */,
 				87787C862C5F8703006A61CE /* CardView.swift */,
 				87787C882C5F8775006A61CE /* SkeletonCardLoader.swift */,
+				87787C8A2C5F8B7B006A61CE /* HorizontalScrollView.swift */,
 			);
 			path = MovieListView;
 			sourceTree = "<group>";
@@ -430,7 +430,6 @@
 			files = (
 				87787C7B2C5AA7CC006A61CE /* Datasource.swift in Sources */,
 				874E9C052C3F198B000719D9 /* Application.swift in Sources */,
-				87787C632C4C2DBA006A61CE /* HorizontalScrollView.swift in Sources */,
 				87787C682C57DD72006A61CE /* HomeTabView.swift in Sources */,
 				874E9BE42C3C4BDF000719D9 /* MovieUseCases.swift in Sources */,
 				874E9BE12C3C49CB000719D9 /* MovieRepository.swift in Sources */,
@@ -453,6 +452,7 @@
 				87787C812C5F6977006A61CE /* MovieListView.swift in Sources */,
 				876524282C56AA75008B29C3 /* MovieUseCaseImpl.swift in Sources */,
 				876524422C5F5FAA008B29C3 /* HeaderView.swift in Sources */,
+				87787C8B2C5F8B7B006A61CE /* HorizontalScrollView.swift in Sources */,
 				87787C892C5F8775006A61CE /* SkeletonCardLoader.swift in Sources */,
 				874E9C112C445D10000719D9 /* DataModels.swift in Sources */,
 				87787C7D2C5AB068006A61CE /* FavouritesViewVM.swift in Sources */,

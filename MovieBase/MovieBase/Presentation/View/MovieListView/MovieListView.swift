@@ -17,7 +17,11 @@ struct MovieListView: View {
                     TrendingMovies(vm: vm.trendingMovieVM)
                         .frame(height: proxy.size.height * 0.6)
                     
+                    HorizontalScrollView(vm: vm.createViewModel(.popularMovies))
+                        .frame(width: proxy.size.width, height: proxy.size.height * 0.3)
                     
+                    HorizontalScrollView(vm: vm.createViewModel(.topRated))
+                        .frame(width: proxy.size.width, height: proxy.size.height * 0.3)
                 }
                 
                 HeaderView()
