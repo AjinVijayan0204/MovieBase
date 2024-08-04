@@ -13,12 +13,27 @@ struct MovieDetailView: View {
     var body: some View {
         GeometryReader{ proxy in
             if let movie = vm.movie{
-                
-                MovieDataDetailView(movie: movie,
-                                    isOnline: vm.isOnline,
-                                    isLiked: $vm.isLiked,
-                                    action: vm.addFavourite)
+                VStack {
+                    if vm.isOnline{
+                        Color.yellow
+                            .aspectRatio(16/9, contentMode: .fit)
+                            .frame(height: proxy.size.height * 0.35)
+                    }else{
+                        Color.white
+                            .aspectRatio(16/9, contentMode: .fit)
+                            .frame(height: proxy.size.height * 0.35)
+                    }
+                    MovieDataDetailView(movie: movie,
+                                        isOnline: vm.isOnline,
+                                        isLiked: $vm.isLiked,
+                                        action: vm.addFavourite)
+                    
+                }
                 .frame(width: proxy.size.width, height: proxy.size.height)
+            }else{
+                ProgressView()
+                    .tint(Color.white)
+                    .frame(width: proxy.size.width, height: proxy.size.height)
             }
             
         }
