@@ -11,3 +11,8 @@ enum ImageViewType{
     case card
     case expanded
 }
+
+enum CardViewType{
+    case normal
+    case loadMore
+}

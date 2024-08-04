@@ -21,7 +21,7 @@ struct TrendingMovieLoader: View {
                 Img
                     .resizable()
             } placeholder: {
-                AnimatedCard()
+                SkeletonCardLoader()
             }
 
         }

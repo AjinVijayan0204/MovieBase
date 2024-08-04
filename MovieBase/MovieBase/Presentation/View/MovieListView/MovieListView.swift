@@ -16,6 +16,8 @@ struct MovieListView: View {
                 ScrollView(.vertical) {
                     TrendingMovies(vm: vm.trendingMovieVM)
                         .frame(height: proxy.size.height * 0.6)
+                    
+                    
                 }
                 
                 HeaderView()
