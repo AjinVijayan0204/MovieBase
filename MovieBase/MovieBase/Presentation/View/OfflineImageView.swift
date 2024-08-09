@@ -12,14 +12,12 @@ struct OfflineImageView: View {
     var action: (MovieDetailModel)-> ()
     
     var body: some View {
-        GeometryReader { proxy in
-            Image(uiImage: UIImage(data: movie.poster ?? Data()) ?? UIImage())
-                .resizable()
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .onTapGesture {
-                    self.action(movie)
-                }
-        }
+        Image(uiImage: UIImage(data: movie.poster ?? Data()) ?? UIImage())
+            .resizable()
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .onTapGesture {
+                self.action(movie)
+            }
     }
 }
 
