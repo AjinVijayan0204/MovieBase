@@ -16,14 +16,11 @@ struct TrendingMovieLoader: View {
     var action: (Int)-> ()
     
     var body: some View {
-        GeometryReader { proxy in
-            AsyncImage(url: URL(string: Config().imgBaseUrl + imgUrl)) { Img in
-                Img
-                    .resizable()
-            } placeholder: {
-                SkeletonCardLoader()
-            }
-
+        AsyncImage(url: URL(string: Config().imgBaseUrl + imgUrl)) { Img in
+            Img
+                .resizable()
+        } placeholder: {
+            SkeletonCardLoader()
         }
     }
 }

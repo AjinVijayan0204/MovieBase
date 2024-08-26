@@ -25,28 +25,26 @@ struct CardView: View {
     }
     
     var body: some View {
-        GeometryReader{ proxy in
-            ZStack{
-                if(type == .normal){
-                    AsyncImage(url: URL(string: Config().imgBaseUrl + url)) { img in
-                        ZStack{
-                            img
-                                .resizable()
-                            Color.black
-                                .opacity(0.4)
-                        }
-                    } placeholder: {
-                        SkeletonCardLoader()
+        ZStack(alignment: .center){
+            if(type == .normal){
+                AsyncImage(url: URL(string: Config().imgBaseUrl + url)) { img in
+                    ZStack{
+                        img
+                            .resizable()
+                        Color.black
+                            .opacity(0.4)
                     }
+                } placeholder: {
+                    SkeletonCardLoader()
+                }
 
-                }else{
-                    ProgressView()
-                }
-            }.clipShape(RoundedRectangle(cornerRadius: 20))
-                .onTapGesture {
-                    action(id)
-                }
-        }
+            }else{
+                ProgressView()
+            }
+        }.clipShape(RoundedRectangle(cornerRadius: 20))
+            .onTapGesture {
+                action(id)
+            }
     }
 }
 
