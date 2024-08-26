@@ -19,12 +19,8 @@ struct ContentView: View {
        }
     
     var body: some View {
-        NavigationStack {
-            HomeTabView(container: container)
-                .ignoresSafeArea()
-                
-        }.tint(.white)
-        .background(.black)
+        HomeTabView(container: container)
+            .ignoresSafeArea()
     }
 }
 
