@@ -25,15 +25,21 @@ class TrendingMovieViewModel: ObservableObject{
     
     func getMovies(_ ofType: MovieEndpoint){
         Task{
-            let movies = await movieUseCase.getMovies(ofType, page: 1)
-            await MainActor.run(body: {
-                switch ofType{
-                case .nowPlaying:
-                    self.upcoming = (!movies.isEmpty) ? Array(movies.prefix(upTo: 5)) : Array(repeating: MovieCardModel(movieId: 0, originalTitle: "", posterPath: ""), count: 6)
-                default:
-                    break
-                }
-            })
+            let result = await movieUseCase.getMovies(ofType, page: 1)
+            switch result{
+            case .success(let movies):
+                await MainActor.run(body: {
+                    switch ofType{
+                    case .nowPlaying:
+                        self.upcoming = (!movies.isEmpty) ? Array(movies.prefix(upTo: 5)) : Array(repeating: MovieCardModel(movieId: 0, originalTitle: "", posterPath: ""), count: 6)
+                    default:
+                        break
+                    }
+                })
+            case .failure(let error):
+                break
+            }
+            
         }
     }
     

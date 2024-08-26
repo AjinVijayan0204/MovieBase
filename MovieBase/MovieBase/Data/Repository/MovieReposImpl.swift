@@ -9,13 +9,13 @@ import Foundation
 
 struct MovieReposImpl: MovieRepository{
     
-    var dataSource: MovieAPIImpl
+    var dataSource: MovieApi
     var localDataSource: SwiftDataSources
     
-    func getMovies(_ ofType: MovieEndpoint, page: Int) async -> [MovieCardModel] {
+    func getMovies(_ ofType: MovieEndpoint, page: Int) async -> Result<[MovieCardModel], Error> {
         let movies = await dataSource.getMovies(ofType, page: page)
         let presentationModel = convertMoviesDataToPresentationModel(movies)
-        return presentationModel
+        return .success(presentationModel) 
     }
     
     func convertMoviesDataToPresentationModel(_ movies: [Movie])-> [MovieCardModel]{

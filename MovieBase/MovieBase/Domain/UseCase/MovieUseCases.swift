@@ -8,7 +8,7 @@
 import Foundation
 
 protocol  MovieUseCases{
-    func getMovies(_ ofType: MovieEndpoint, page: Int) async -> [MovieCardModel]
+    func getMovies(_ ofType: MovieEndpoint, page: Int) async -> Result<[MovieCardModel], Error>
     func getDetail(_ ofType: MovieEndpoint) async -> MovieDetailModel?
     func getSavedMovies()-> [MovieDetailModel]
     //insert to fav

@@ -9,7 +9,13 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-class SwiftDataSources{
+protocol SwiftDataSources{
+    func insert(_ movie: MovieDataModel)
+    func getMovies()-> [MovieDataModel]
+    func deleteMovie(_ movie: MovieDataModel)
+}
+
+class SwiftDataSourcesImpl: SwiftDataSources{
     var context: ModelContext?
     var container: ModelContainer?
     var movies: [MovieDataModel] = []

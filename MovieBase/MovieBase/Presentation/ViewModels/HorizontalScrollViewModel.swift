@@ -35,8 +35,14 @@ class HorizontalScrollViewModel: ObservableObject{
     }
     
     func getMoviesForList(_ ofType: MovieEndpoint) async-> [MovieCardModel]{
-            let movies = await movieUseCase.getMovies(ofType, page: self.page)
+            let result = await movieUseCase.getMovies(ofType, page: self.page)
+        switch result {
+        case .success(let movies):
             return movies
+        case .failure(let error):
+            return [MovieCardModel]()
+        }
+            
     }
     
     func loadMovies(){

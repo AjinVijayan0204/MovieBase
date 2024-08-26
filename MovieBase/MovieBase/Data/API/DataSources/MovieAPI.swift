@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct MovieAPIImpl{
+protocol MovieApi{
+    func getMovies(_ endPoint: MovieEndpoint, page: Int) async-> [Movie]
+    func getMovieDetails(_ endPoint: MovieEndpoint) async-> MovieDetailResponseModel?
+}
+
+struct MovieAPIImpl: MovieApi{
     
     let webService = WebService()
     
