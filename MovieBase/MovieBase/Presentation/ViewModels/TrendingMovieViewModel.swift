@@ -9,7 +9,12 @@ import Foundation
 
 class TrendingMovieViewModel: ObservableObject{
     
-    @Published var selectedIndex: Int = 0
+    @Published var selectedIndex: Int = 0{
+        didSet{
+            timer?.invalidate()
+            self.autoScroll()
+        }
+    }
     @Published var upcoming: [MovieCardModel] = Array(repeating: MovieCardModel(movieId: 0, originalTitle: "", posterPath: ""), count: 6)
     
     var movieUseCase: MovieUseCases
