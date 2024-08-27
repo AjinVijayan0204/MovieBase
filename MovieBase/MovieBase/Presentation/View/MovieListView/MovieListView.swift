@@ -60,13 +60,10 @@ struct MovieListView: View {
                         
                     }
                 })
-                .toolbarBackground(.opacity(0.1), for: .navigationBar)
+                .toolbarBackground(.opacity(0.6), for: .navigationBar)
             }
-            .onAppear{
-                UITabBar.appearance().alpha = 1
-            }
+            .ignoresSafeArea()
         }
-        .ignoresSafeArea()
     }
 }
 

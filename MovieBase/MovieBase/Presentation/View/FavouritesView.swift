@@ -18,7 +18,7 @@ struct FavouritesView: View {
                 let columns = Array(repeating: GridItem(), count: 3)
                 VStack(alignment: .leading, content: {
                     Spacer()
-                        .frame(height: proxy.size.height * 0.1)
+                        .frame(height: proxy.size.height * 0.15)
                     
                     ScrollView(.vertical) {
                         LazyVGrid(columns: columns, spacing: 20, content: {
@@ -38,11 +38,17 @@ struct FavouritesView: View {
                 .ignoresSafeArea()
                 .frame(width: proxy.size.width, height: proxy.size.height)
             }
-            .navigationTitle("Favourites")
-            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $vm.toDetailView) {
                 MovieDetailView(vm: vm.movieDetailViewModel)
             }
+            .toolbar {
+                ToolbarItemGroup(placement: .principal) {
+                    Text("Favourites")
+                        .bold()
+                        .foregroundStyle(.white)
+                }
+            }
+            .toolbarBackground(.opacity(0.6), for: .navigationBar)
         }
     }
 }
