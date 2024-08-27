@@ -25,4 +25,15 @@ final class MovieRepositoryImplUnitTest: XCTestCase{
         }
     }
     
+    func testGetMovieDetails(){
+        Task{
+            let result = await movieRepositoryImpl.getDetail(.movieDetail(id: 0))
+            switch result{
+            case .success(let movieDetail):
+                XCTAssertEqual(movieDetail.movieId, 0)
+            case .failure(let error):
+                XCTAssertTrue(((error as? MovieBaseErrors) != nil))
+            }
+        }
+    }
 }
