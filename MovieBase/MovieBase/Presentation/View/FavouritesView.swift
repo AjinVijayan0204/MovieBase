@@ -20,11 +20,6 @@ struct FavouritesView: View {
                     Spacer()
                         .frame(height: proxy.size.height * 0.1)
                     
-                    Text(" ")
-                        .bold()
-                        .foregroundStyle(.white)
-                        .font(.title3)
-                    
                     ScrollView(.vertical) {
                         LazyVGrid(columns: columns, spacing: 20, content: {
                             ForEach(vm.movies, id: \.self){ movie in
@@ -43,6 +38,8 @@ struct FavouritesView: View {
                 .ignoresSafeArea()
                 .frame(width: proxy.size.width, height: proxy.size.height)
             }
+            .navigationTitle("Favourites")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $vm.toDetailView) {
                 MovieDetailView(vm: vm.movieDetailViewModel)
             }

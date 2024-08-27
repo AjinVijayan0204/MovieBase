@@ -12,7 +12,6 @@ struct HomeTabView: View {
     let container: DependencyContainer
     
     var body: some View {
-        NavigationStack {
             TabView {
                 MovieListView(vm: container.movieListViewModel)
                     .tabItem {
@@ -27,9 +26,9 @@ struct HomeTabView: View {
             .background(.black)
             .onAppear{
                 UITabBar.appearance().unselectedItemTintColor = .gray
+                UITabBar.appearance().barTintColor = .black
                 UITabBar.appearance().backgroundColor = UIColor(named: "TabView Color")
             }
-        }
     }
 }
 

@@ -16,7 +16,6 @@ struct MovieDataDetailView: View {
     var action: ()-> ()
     
     var body: some View {
-        GeometryReader{ proxy in
             VStack(alignment: .leading, content: {
                 if isOnline{
                     HStack(){
@@ -42,8 +41,9 @@ struct MovieDataDetailView: View {
                         Spacer()
                             
                     }
-                    .frame(height: proxy.size.height * 0.05)
-                    
+                    .containerRelativeFrame(.vertical) { size, axes in
+                        size * 0.03
+                    }
                 }
                 
                 VStack(alignment: .leading){
@@ -71,11 +71,9 @@ struct MovieDataDetailView: View {
                         .padding(.top, 8)
                 }
                 .padding(.horizontal)
-                    
             })
-            .frame(width: proxy.size.width, height: proxy.size.height, alignment: .top)
             .background(.black)
-        }
+        
     }
 }
 

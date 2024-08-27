@@ -39,7 +39,11 @@ struct CardView: View {
                 }
 
             }else{
-                ProgressView()
+                ZStack{
+                    SkeletonCardLoader()
+                    ProgressView()
+                }
+                
             }
         }.clipShape(RoundedRectangle(cornerRadius: 20))
             .onTapGesture {

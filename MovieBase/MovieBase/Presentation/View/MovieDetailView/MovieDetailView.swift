@@ -32,7 +32,7 @@ struct MovieDetailView: View {
                                             action: vm.addFavourite)
                         
                     }
-                    .frame(width: proxy.size.width, height: proxy.size.height, alignment: .center)
+                    .frame(width: proxy.size.width, height: proxy.size.height, alignment: .top)
                     .padding(.top, proxy.size.height * 0.1)
                 }
                 

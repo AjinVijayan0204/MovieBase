@@ -20,12 +20,12 @@ struct MovieListView: View {
                                 .frame(height: proxy.size.height * 0.6)
                             
                             HorizontalScrollView(vm: vm.createViewModel(.popularMovies))
-                                .frame(width: proxy.size.width, height: proxy.size.height * 0.3)
+                                .frame(width: proxy.size.width, height: proxy.size.height * 0.4)
                             
                             HorizontalScrollView(vm: vm.createViewModel(.topRated))
-                                .frame(width: proxy.size.width, height: proxy.size.height * 0.3)
+                                .frame(width: proxy.size.width, height: proxy.size.height * 0.4)
                             Spacer()
-                                .frame(width: proxy.size.width, height: proxy.size.height * 0.12)
+                                
                         }
                     }
                     .background(.black)
@@ -63,11 +63,10 @@ struct MovieListView: View {
                 .toolbarBackground(.opacity(0.1), for: .navigationBar)
             }
             .onAppear{
-                UINavigationBar.appearance().barTintColor = .clear
+                UITabBar.appearance().alpha = 1
             }
-        .ignoresSafeArea()
         }
-        
+        .ignoresSafeArea()
     }
 }
 
