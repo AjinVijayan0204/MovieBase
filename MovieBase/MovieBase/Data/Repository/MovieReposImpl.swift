@@ -13,9 +13,17 @@ struct MovieReposImpl: MovieRepository{
     var localDataSource: SwiftDataSources
     
     func getMovies(_ ofType: MovieEndpoint, page: Int) async -> Result<[MovieCardModel], Error> {
-        let movies = await dataSource.getMovies(ofType, page: page)
-        let presentationModel = convertMoviesDataToPresentationModel(movies)
-        return .success(presentationModel) 
+        do{
+            let movies = try await dataSource.getMovies(ofType, page: page)
+            let presentationModel = convertMoviesDataToPresentationModel(movies)
+            return .success(presentationModel)
+        }catch {
+            switch error{
+            default:
+                return .failure(error)
+            }
+        }
+        
     }
     
     func convertMoviesDataToPresentationModel(_ movies: [Movie])-> [MovieCardModel]{
@@ -29,10 +37,21 @@ struct MovieReposImpl: MovieRepository{
         return convertedMovies
     }
    
-    func getDetail(_ ofType: MovieEndpoint) async -> MovieDetailModel? {
-        let movieDetail = await dataSource.getMovieDetails(ofType)
-        let presentedMovieDetail = convertMovieDetailsToPresentationModel(movieDetail) ?? nil
-        return presentedMovieDetail
+    func getDetail(_ ofType: MovieEndpoint) async -> Result<MovieDetailModel, Error> {
+        do{
+            let movieDetail = try await dataSource.getMovieDetails(ofType)
+            if let presentedMovieDetail = convertMovieDetailsToPresentationModel(movieDetail){
+                return .success(presentedMovieDetail)
+            }else{
+                return .failure(MovieBaseErrors.conversionError)
+            }
+        }catch{
+            switch error{
+            default:
+                return .failure(error)
+            }
+        }
+        
     }
     
     func convertMovieDetailsToPresentationModel(_ movie: MovieDetailResponseModel?)-> MovieDetailModel?{

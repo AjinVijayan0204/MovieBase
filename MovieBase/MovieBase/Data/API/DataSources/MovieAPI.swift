@@ -8,15 +8,15 @@
 import Foundation
 
 protocol MovieApi{
-    func getMovies(_ endPoint: MovieEndpoint, page: Int) async-> [Movie]
-    func getMovieDetails(_ endPoint: MovieEndpoint) async-> MovieDetailResponseModel?
+    func getMovies(_ endPoint: MovieEndpoint, page: Int) async throws-> [Movie]
+    func getMovieDetails(_ endPoint: MovieEndpoint) async throws-> MovieDetailResponseModel?
 }
 
 struct MovieAPIImpl: MovieApi{
     
     let webService = WebService()
     
-    func getMovies(_ endPoint: MovieEndpoint, page: Int) async-> [Movie] {
+    func getMovies(_ endPoint: MovieEndpoint, page: Int) async throws-> [Movie] {
         
         let movieEndpoint = endPoint.rawValue
         let queryItems: [URLQueryItem] = [
@@ -29,11 +29,11 @@ struct MovieAPIImpl: MovieApi{
             let moviesResponse = try JSONDecoder().decode(MovieResponse.self, from: data)
             return moviesResponse.result
         }catch{
-            return [Movie]()
+            throw MovieBaseErrors.invalidAccess
         }
     }
     
-    func getMovieDetails(_ endPoint: MovieEndpoint) async-> MovieDetailResponseModel?{
+    func getMovieDetails(_ endPoint: MovieEndpoint) async throws-> MovieDetailResponseModel?{
         
         let movieDetailEndPoint = endPoint.rawValue
         let queryItems: [URLQueryItem] = [
@@ -44,7 +44,7 @@ struct MovieAPIImpl: MovieApi{
             let movieDetailResponse = try JSONDecoder().decode(MovieDetailResponseModel.self, from: data)
             return movieDetailResponse
         }catch{
-            return nil
+            throw MovieBaseErrors.invalidAccess
         }
         
     }

@@ -15,7 +15,7 @@ struct HorizontalScrollView: View {
             VStack(alignment: .leading){
                 Text(vm.name)
                     .sectionHeader()
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(content: {
                         ForEach(vm.moviesList, id: \.self) { movie in
                             CardView(id: movie.movieId,

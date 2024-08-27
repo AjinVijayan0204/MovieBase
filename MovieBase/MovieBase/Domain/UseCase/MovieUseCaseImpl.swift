@@ -15,7 +15,7 @@ struct MovieUseCasesImpl: MovieUseCases{
         return (await repo.getMovies(ofType, page: page))
     }
     
-    func getDetail(_ ofType: MovieEndpoint) async -> MovieDetailModel? {
+    func getDetail(_ ofType: MovieEndpoint) async -> Result<MovieDetailModel, Error> {
         return (await repo.getDetail(ofType))
     }
     

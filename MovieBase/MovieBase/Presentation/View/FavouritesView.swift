@@ -20,7 +20,7 @@ struct FavouritesView: View {
                     Spacer()
                         .frame(height: proxy.size.height * 0.1)
                     
-                    Text("Favourites")
+                    Text(" ")
                         .bold()
                         .foregroundStyle(.white)
                         .font(.title3)

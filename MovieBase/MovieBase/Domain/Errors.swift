@@ -12,4 +12,5 @@ enum MovieBaseErrors: Error{
     case networkTimeout
     case noNetwork
     case databaseError
+    case conversionError
 }

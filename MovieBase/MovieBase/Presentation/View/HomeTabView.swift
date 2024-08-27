@@ -12,21 +12,23 @@ struct HomeTabView: View {
     let container: DependencyContainer
     
     var body: some View {
-        TabView {
-            MovieListView(vm: container.movieListViewModel)
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-            FavouritesView(vm: container.favouritesViewModel)
-                .tabItem {
-                    Label("Favourite", systemImage: "heart")
-                }
-        }
-        .tint(.white)
-        .background(.black)
-        .onAppear{
-            UITabBar.appearance().unselectedItemTintColor = .gray
-            UITabBar.appearance().backgroundColor = UIColor(named: "TabView Color")
+        NavigationStack {
+            TabView {
+                MovieListView(vm: container.movieListViewModel)
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                FavouritesView(vm: container.favouritesViewModel)
+                    .tabItem {
+                        Label("Favourite", systemImage: "heart")
+                    }
+            }
+            .tint(.white)
+            .background(.black)
+            .onAppear{
+                UITabBar.appearance().unselectedItemTintColor = .gray
+                UITabBar.appearance().backgroundColor = UIColor(named: "TabView Color")
+            }
         }
     }
 }

@@ -32,12 +32,15 @@ class MovieDetailViewModel: ObservableObject{
     
     func getMovieDetails(_ ofType: MovieEndpoint){
         Task{
-            let movie = await movieUseCase.getDetail(ofType)
+            let result = await movieUseCase.getDetail(ofType)
             await MainActor.run {
                 switch ofType{
                 case .movieDetail(id: _):
-                    if let movie = movie{
+                    switch result {
+                    case .success(let movie):
                         self.movie = movie
+                    case .failure(let error):
+                        print("error \(error.localizedDescription)")
                     }
                 default:
                     break
