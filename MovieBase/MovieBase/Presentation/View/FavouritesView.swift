@@ -13,13 +13,10 @@ struct FavouritesView: View {
     @ObservedObject var vm: FavouritesViewModel
     
     var body: some View {
-        NavigationStack {
-            GeometryReader{ proxy in
-                let columns = Array(repeating: GridItem(), count: 3)
-                VStack(alignment: .leading, content: {
-                    Spacer()
-                        .frame(height: proxy.size.height * 0.15)
-                    
+        NavigationStack{
+            GeometryReader { proxy in
+                VStack(alignment: .leading){
+                    let columns = Array(repeating: GridItem(), count: 3)
                     ScrollView(.vertical) {
                         LazyVGrid(columns: columns, spacing: 20, content: {
                             ForEach(vm.movies, id: \.self){ movie in
@@ -33,22 +30,20 @@ struct FavouritesView: View {
                     .onAppear{
                         vm.getSavedMovies()
                     }
-                })
-                .background(Color.black)
-                .ignoresSafeArea()
-                .frame(width: proxy.size.width, height: proxy.size.height)
-            }
-            .navigationDestination(isPresented: $vm.toDetailView) {
-                MovieDetailView(vm: vm.movieDetailViewModel)
-            }
-            .toolbar {
-                ToolbarItemGroup(placement: .principal) {
-                    Text("Favourites")
-                        .bold()
-                        .foregroundStyle(.white)
                 }
+                .navigationDestination(isPresented: $vm.toDetailView) {
+                    MovieDetailView(vm: vm.movieDetailViewModel)
+                    }
+                .background(Color.black)
+                .toolbar(content: {
+                    ToolbarItem(placement: .principal) {
+                        Text("Favourites")
+                            .foregroundStyle(.white)
+                            .bold()
+                    }
+                })
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .toolbarBackground(.opacity(0.6), for: .navigationBar)
         }
     }
 }

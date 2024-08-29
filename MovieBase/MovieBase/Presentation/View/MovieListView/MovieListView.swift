@@ -11,29 +11,25 @@ struct MovieListView: View {
     @StateObject var vm: MovieListViewModel
     
     var body: some View {
-        NavigationStack {
+        NavigationStack{
             GeometryReader { proxy in
-                VStack {
-                    ZStack(alignment: .top){
-                        ScrollView(.vertical, showsIndicators: false) {
-                            TrendingMovies(vm: vm.trendingMovieVM)
-                                .frame(height: proxy.size.height * 0.6)
-                            
-                            HorizontalScrollView(vm: vm.createViewModel(.popularMovies))
-                                .frame(width: proxy.size.width, height: proxy.size.height * 0.4)
-                            
-                            HorizontalScrollView(vm: vm.createViewModel(.topRated))
-                                .frame(width: proxy.size.width, height: proxy.size.height * 0.4)
-                            Spacer()
-                                
-                        }
+                VStack{
+                    ScrollView(.vertical, showsIndicators: false) {
+                        TrendingMovies(vm: vm.trendingMovieVM)
+                            .frame(height: proxy.size.height * 0.6)
+                        
+                        HorizontalScrollView(vm: vm.createViewModel(.popularMovies))
+                            .frame(width: proxy.size.width, height: proxy.size.height * 0.4)
+                        
+                        HorizontalScrollView(vm: vm.createViewModel(.topRated))
+                            .frame(width: proxy.size.width, height: proxy.size.height * 0.4)
+                        
+                        Spacer()
+                            .frame(height: proxy.size.height * 0.1)
                     }
-                    .background(.black)
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationDestination(isPresented: $vm.toDetailScreen) {
-                    MovieDetailView(vm: vm.movieDetailViewModel)
-                }
+                .background(.black)
+                .ignoresSafeArea()
                 .toolbar(content: {
                     ToolbarItemGroup(placement: .topBarLeading) {
                         Image("icon_header")
@@ -60,9 +56,12 @@ struct MovieListView: View {
                         
                     }
                 })
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationDestination(isPresented: $vm.toDetailScreen) {
+                    MovieDetailView(vm: vm.movieDetailViewModel)
+                }
                 .toolbarBackground(.opacity(0.6), for: .navigationBar)
             }
-            .ignoresSafeArea()
         }
     }
 }

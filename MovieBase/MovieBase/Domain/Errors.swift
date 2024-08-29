@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum MovieBaseErrors: Error{
-    case invalidAccess
-    case networkTimeout
-    case noNetwork
-    case databaseError
-    case conversionError
+enum MovieBaseErrors: String, Error{
+    case invalidAccess = "Invalid token"
+    case networkTimeout = "The network request is timed out"
+    case noNetwork = "Unable to connect to network"
+    case databaseError = "Unable to fetch data from storage"
+    case conversionError = "Type conversion error"
 }

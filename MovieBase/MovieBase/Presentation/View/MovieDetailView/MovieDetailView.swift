@@ -44,6 +44,7 @@ struct MovieDetailView: View {
             
         }
         .background(.black)
+        .toolbar(.hidden, for: .tabBar)
         .onAppear{
             vm.getMovieDetails()
         }
