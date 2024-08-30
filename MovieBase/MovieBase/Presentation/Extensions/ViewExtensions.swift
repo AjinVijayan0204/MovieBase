@@ -24,4 +24,12 @@ extension View{
     func headerImageStyle()-> some View{
         modifier(HeaderViewImage())
     }
+    
+    func setHeightRelativeToParent(_ height: Double)-> some View{
+        modifier(HeightVertical(heightRatioWithParent: height))
+    }
+    
+    func setWidthRelativeToParent(_ width: Double)-> some View{
+        modifier(WidthHorizontal(widthRatioWithParent: width))
+    }
 }

@@ -42,3 +42,33 @@ struct HeaderViewImage: ViewModifier{
             .aspectRatio(1, contentMode: .fit)
     }
 }
+
+struct HeightVertical: ViewModifier{
+    var heightRatioWithParent: Double
+    
+    init(heightRatioWithParent: Double) {
+        self.heightRatioWithParent = heightRatioWithParent
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .containerRelativeFrame(.vertical) { height, _ in
+                height * heightRatioWithParent
+            }
+    }
+}
+
+struct WidthHorizontal: ViewModifier{
+    var widthRatioWithParent: Double
+    
+    init(widthRatioWithParent: Double) {
+        self.widthRatioWithParent = widthRatioWithParent
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .containerRelativeFrame(.horizontal) { width, _ in
+                width * widthRatioWithParent
+            }
+    }
+}

@@ -9,9 +9,10 @@ import SwiftUI
 
 struct MovieDetailView: View {
     @StateObject var vm: MovieDetailViewModel
-    
     var body: some View {
-        GeometryReader{ proxy in
+        VStack{
+            Spacer()
+                .setHeightRelativeToParent(0.15)
             if let movie = vm.movie{
                 ScrollView(.vertical) {
                     VStack(alignment: .center) {
@@ -20,11 +21,11 @@ struct MovieDetailView: View {
                                      name: movie.originalTitle,
                                      url: movie.posterPath, action: {_ in })
                             .aspectRatio(1.1, contentMode: .fit)
-                                .frame(height: proxy.size.height * 0.35)
+                            .setHeightRelativeToParent(0.35)
                         }else{
                             OfflineImageView(movie: movie, action: {_ in })
                                 .aspectRatio(1.1, contentMode: .fit)
-                                .frame(height: proxy.size.height * 0.35)
+                                .setHeightRelativeToParent(0.35)
                         }
                         MovieDataDetailView(movie: movie,
                                             isOnline: vm.isOnline,
@@ -32,23 +33,23 @@ struct MovieDetailView: View {
                                             action: vm.addFavourite)
                         
                     }
-                    .frame(width: proxy.size.width, height: proxy.size.height, alignment: .top)
-                    .padding(.top, proxy.size.height * 0.1)
                 }
                 
             }else{
                 ProgressView()
+                    .setWidthRelativeToParent(1)
+                    .setHeightRelativeToParent(1)
                     .tint(Color.white)
-                    .frame(width: proxy.size.width, height: proxy.size.height)
             }
             
         }
+        .setWidthRelativeToParent(1)
+        .ignoresSafeArea()
         .background(.black)
         .toolbar(.hidden, for: .tabBar)
         .onAppear{
             vm.getMovieDetails()
         }
-        .ignoresSafeArea()
     }
 }
 
